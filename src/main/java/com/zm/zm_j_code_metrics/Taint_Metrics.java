@@ -147,16 +147,36 @@ public class Taint_Metrics {
                 }
             }
         }
+        
+        
         return Tainted_Src_Calls_List;
     }
     
+    /**
+     * Get the list of all tainted variables
+     * @param XML_Node : the XML representation of the code 
+     * @param Language : the source language
+     * @return  : list of all tainted variables
+     */
+    private static long Get_Total_Funcs_Calls (Node XML_Node) 
+    {
+        // get calls of tainted src funcs
+        Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
+        NodeList Funcs_Calls_Node_List = eXML_Node.getElementsByTagName("call");
+        
+        
+        return Funcs_Calls_Node_List.getLength();
+    }
     
-    public static Taint_Met Get_Taint_Met (Node XML_Node, String Language) throws XPathExpressionException
+    
+    public static Taint_Met Get_Taint_MGet_Total_Funcs_Callset (Node XML_Node, String Language) throws XPathExpressionException
     {        
         Taint_Met  T_M = new Taint_Met();
         
-        T_M.Taint_Ratio = Get_Tainted_Var_List(XML_Node, Language).size() /
-        Utils.Get_Variables_List(XML_Node, Language).size();       
+        //T_M.Taint_Ratio = Get_Tainted_Var_List(XML_Node, Language).size() /
+        //Utils.Get_Variables_List(XML_Node, Language).size();     
+        T_M.Tainted_Src_Calls = Get_Tainted_Src_Calls_List (XML_Node, Language).size();
+        T_M.Taint_Ratio = T_M.Tainted_Src_Calls / Get_Total_Funcs_Calls(XML_Node);
         return T_M;
     }
     
