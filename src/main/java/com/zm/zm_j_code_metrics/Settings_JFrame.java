@@ -80,6 +80,11 @@ public class Settings_JFrame extends javax.swing.JFrame {
         /*
         *   TODO : add other languages : java, c#,.. (supported by srcML)
         */
+        
+        // For version 2 (security metrics)
+        //C
+        //Functions that return a tainted value
+        C_Tainted_SRC_Funcs_jTextField.setText(Settings.Languages_Settings_Props.getProperty("C_TAINTED_SRC_FUNCS"));
     }
     
     
@@ -125,6 +130,8 @@ public class Settings_JFrame extends javax.swing.JFrame {
         C_Type_Specificators_jTextField = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         C_Operators_jTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        C_Tainted_SRC_Funcs_jTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         Cpp_Key_Word_jTextField = new javax.swing.JTextField();
@@ -230,6 +237,8 @@ public class Settings_JFrame extends javax.swing.JFrame {
 
         jLabel21.setText("Operators :");
 
+        jLabel2.setText("Tainted Src Funcs :");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -251,7 +260,7 @@ public class Settings_JFrame extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(C_Storage_Class_Specificators_jTextField))
+                        .addComponent(C_Storage_Class_Specificators_jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -259,7 +268,11 @@ public class Settings_JFrame extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(C_Operators_jTextField)))
+                        .addComponent(C_Operators_jTextField))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(C_Tainted_SRC_Funcs_jTextField)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -288,7 +301,11 @@ public class Settings_JFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(C_Operators_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 52, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(C_Tainted_SRC_Funcs_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("C", jPanel3);
@@ -484,7 +501,7 @@ public class Settings_JFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Save_Languages_Settings_jButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -565,7 +582,8 @@ public class Settings_JFrame extends javax.swing.JFrame {
                 Cpp_Type_Qualificators_jTextField.getText(), Cpp_Storage_Class_Specificators_jTextField.getText(),
                 C_Type_Qualificators_jTextField.getText(), C_Storage_Class_Specificators_jTextField.getText(),
                 Cpp_Type_Specificators_jTextField.getText(), Cpp_Operators_jTextField.getText(),
-                C_Type_Specificators_jTextField.getText(), C_Operators_jTextField.getText()
+                C_Type_Specificators_jTextField.getText(), C_Operators_jTextField.getText(),
+                C_Tainted_SRC_Funcs_jTextField.getText()
                 
         /**
         *   TODO : add other languages : java, c#,.. (supported by srcML)
@@ -619,6 +637,7 @@ public class Settings_JFrame extends javax.swing.JFrame {
     private javax.swing.JTextField C_Sharpe_Control_Commands_jTextField;
     private javax.swing.JTextField C_Sharpe_Key_Word_jTextField;
     private javax.swing.JTextField C_Storage_Class_Specificators_jTextField;
+    private javax.swing.JTextField C_Tainted_SRC_Funcs_jTextField;
     private javax.swing.JTextField C_Type_Qualificators_jTextField;
     private javax.swing.JTextField C_Type_Specificators_jTextField;
     private javax.swing.JButton Close_jButton;
@@ -645,6 +664,7 @@ public class Settings_JFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
