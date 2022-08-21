@@ -201,6 +201,7 @@ public class Config
      * @param CPP_OPERATORS,
      * @param C_TYPE_SPECIFICATORS,
      * @param C_OPERATORS, 
+     * @param C_TAINTED_SRC_FUNCS
      */
     public void Save_Languages_Settings
     (
@@ -209,7 +210,8 @@ public class Config
             String CPP_TYPE_QUALIFICATORS, String CPP_STORAGE_CLASS_SPECIFICATORS,
             String C_TYPE_QUALIFICATORS, String C_STORAGE_CLASS_SPECIFICATORS,
             String CPP_TYPE_SPECIFICATORS, String CPP_OPERATORS,
-            String C_TYPE_SPECIFICATORS, String C_OPERATORS       
+            String C_TYPE_SPECIFICATORS, String C_OPERATORS,
+            String C_TAINTED_SRC_FUNCS
     )
     {
         OutputStream outputStream = null;
@@ -234,6 +236,12 @@ public class Config
             /*
             * TODO add the same for the language supported by srcML
             */
+            
+            // For version 2 (security metrics)
+            //C
+            //Functions that return a tainted value
+            Languages_Settings_Props.setProperty("C_TAINTED_SRC_FUNCS", C_TAINTED_SRC_FUNCS);
+            
             
             outputStream = new FileOutputStream(Languages_Settings_File);
             Languages_Settings_Props.store(outputStream, "Languages Settings");
