@@ -10,14 +10,7 @@
  */
 package com.zm.zm_j_code_metrics;
 
-import static com.zm.zm_j_code_metrics.Taint_Metrics.Get_Tainted_Src_Calls_List;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
