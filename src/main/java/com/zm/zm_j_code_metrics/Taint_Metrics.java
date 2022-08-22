@@ -176,7 +176,15 @@ public class Taint_Metrics {
         //T_M.Taint_Ratio = Get_Tainted_Var_List(XML_Node, Language).size() /
         //Utils.Get_Variables_List(XML_Node, Language).size();     
         T_M.Tainted_Src_Calls = Get_Tainted_Src_Calls_List (XML_Node, Language).size();
-        T_M.Taint_Ratio = T_M.Tainted_Src_Calls / Get_Total_Funcs_Calls(XML_Node);
+        if (Get_Total_Funcs_Calls(XML_Node)!=0)
+        {
+            T_M.Taint_Ratio = T_M.Tainted_Src_Calls / Get_Total_Funcs_Calls(XML_Node);
+        }
+        else
+        {
+            T_M.Taint_Ratio = 0;
+        }
+        
         return T_M;
     }
     
