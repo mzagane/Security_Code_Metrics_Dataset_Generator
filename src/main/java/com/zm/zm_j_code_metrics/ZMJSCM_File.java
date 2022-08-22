@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.xpath.XPathExpressionException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -47,6 +48,9 @@ public class ZMJSCM_File {
     
     
     private List<String> Temp;
+    
+    //Taint Metrics
+    private Taint_Metrics.Taint_Met File_Taint_Metrics ;
     
     public void Get_Functions()
     {
@@ -107,6 +111,12 @@ public class ZMJSCM_File {
        Tokeniser.Generate_Token_List(this.XML_Data, Token_List, this.Language);
        Halstead_Operand_List = Halstead_Metrics.Get_Halstead_Operand_List(Token_List);
        Halstead_Operator_List = Halstead_Metrics.Get_Halstead_Operator_List(Token_List);
+       
+        try {
+            File_Taint_Metrics = Taint_Metrics.Get_Taint_Met(this.XML_Data, this.Language);
+        } catch (XPathExpressionException ex) {
+            Logger.getLogger(ZMJSCM_File.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public String getName() {
