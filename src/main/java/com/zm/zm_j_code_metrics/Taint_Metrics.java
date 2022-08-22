@@ -40,10 +40,10 @@ public class Taint_Metrics {
         */
 
         /*long   Tainted_Var; // not calculated in this version
-        long   San_Tainted_Var;
-        long   Unsan_Tainted_Var;
-        long   San_Passed_To_Unsec_Funcs;
-        long   Unsan_Passed_To_Unsec_Funcs;*/
+        long   San_Tainted_Var;// not calculated in this version
+        long   Unsan_Tainted_Var;// not calculated in this version
+        long   San_Passed_To_Unsec_Funcs;// not calculated in this version
+        long   Unsan_Passed_To_Unsec_Funcs;// not calculated in this version */
         long   Tainted_Src_Calls;
         double Taint_Ratio;
         public Taint_Met()
@@ -114,7 +114,7 @@ public class Taint_Metrics {
      * @param Language : the source language
      * @return  : list of all tainted variables
      */
-    public static List<String> Get_Tainted_Src_Calls_List (Node XML_Node, String Language) throws XPathExpressionException
+    public static List<String> Get_Tainted_Src_Calls_List (Node XML_Node, String Language)
     {
         List<String> Tainted_Src_Calls_List = new ArrayList();
                 
@@ -128,27 +128,15 @@ public class Taint_Metrics {
         Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
         NodeList Funcs_Calls_Node_List = eXML_Node.getElementsByTagName("call");
         Node A_Funcs_Calls_Node;        
-        NodeList Xpath_Node_List;
-        XPath xPath =  XPathFactory.newInstance().newXPath();
-        
-        String Xpath_Expression = "argument_list/argument/expr/name";
         for (int i=0; i<Funcs_Calls_Node_List.getLength(); i++)
         {
             A_Funcs_Calls_Node = Funcs_Calls_Node_List.item(i);
             String Func_Name = ((Element) A_Funcs_Calls_Node).getElementsByTagName("name").item(0).getTextContent();
             if (C_Tainted_Src_Funcs.contains(Func_Name)) // if the func is part of the tainted src
             {   
-                Xpath_Node_List = (NodeList) xPath.compile(Xpath_Expression).evaluate(
-                A_Funcs_Calls_Node, XPathConstants.NODESET);
-                
-                for (int j=0; j<Xpath_Node_List.getLength(); j++)
-                {
-                    Tainted_Src_Calls_List.add(Xpath_Node_List.item(j).getTextContent());
-                }
+                Tainted_Src_Calls_List.add(Func_Name);
             }
         }
-        
-        
         return Tainted_Src_Calls_List;
     }
     
@@ -169,7 +157,7 @@ public class Taint_Metrics {
     }
     
     
-    public static Taint_Met Get_Taint_Met (Node XML_Node, String Language) throws XPathExpressionException
+    public static Taint_Met Calculate_Taint_Met (Node XML_Node, String Language) throws XPathExpressionException
     {        
         Taint_Met  T_M = new Taint_Met();
         
