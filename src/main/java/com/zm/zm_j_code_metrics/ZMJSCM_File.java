@@ -113,7 +113,7 @@ public class ZMJSCM_File {
        Halstead_Operator_List = Halstead_Metrics.Get_Halstead_Operator_List(Token_List);
        
         try {
-            File_Taint_Metrics = Taint_Metrics.Get_Taint_Met(this.XML_Data, this.Language);
+            File_Taint_Metrics = Taint_Metrics.Calculate_Taint_Met(this.XML_Data, this.Language);
         } catch (XPathExpressionException ex) {
             Logger.getLogger(ZMJSCM_File.class.getName()).log(Level.SEVERE, null, ex);
         }
