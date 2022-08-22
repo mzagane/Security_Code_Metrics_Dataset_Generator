@@ -83,7 +83,7 @@ public class Function {
         //Tainted_Vars_List = Taint_Metrics.Get_Tainted_Var_List(this.XML_Data, "C");
         
         //Taint Metrics
-        Function_Taint_Metrics = Taint_Metrics.Get_Taint_Met(this.XML_Data, Language);
+        Function_Taint_Metrics = Taint_Metrics.Calculate_Taint_Met(this.XML_Data, Language);
         
     }
 
