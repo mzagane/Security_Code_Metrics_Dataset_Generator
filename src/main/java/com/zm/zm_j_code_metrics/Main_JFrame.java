@@ -72,7 +72,7 @@ public class Main_JFrame extends javax.swing.JFrame {
                 }
                 // show results                         
                 Results_jTextArea.setText(Show_Results.Show_Metrics(A_Project, File_Index, Function_Index)); 
-                Results_2_jTextArea.setText(Show_Results.Show_Tokens(A_Project, File_Index, Function_Index));
+                //Results_2_jTextArea.setText(Show_Results.Show_Tokens(A_Project, File_Index, Function_Index));
             }
          }
         );

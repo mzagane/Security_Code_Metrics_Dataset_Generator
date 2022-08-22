@@ -178,12 +178,16 @@ public class Taint_Metrics {
         T_M.Tainted_Src_Calls = Get_Tainted_Src_Calls_List (XML_Node, Language).size();
         if (Get_Total_Funcs_Calls(XML_Node)!=0)
         {
-            T_M.Taint_Ratio = T_M.Tainted_Src_Calls / Get_Total_Funcs_Calls(XML_Node);
+            T_M.Taint_Ratio = (double) T_M.Tainted_Src_Calls / Get_Total_Funcs_Calls(XML_Node);
         }
         else
         {
             T_M.Taint_Ratio = 0;
         }
+        /*//debugging
+        System.out.println(Get_Total_Funcs_Calls(XML_Node));
+        System.out.println(T_M.Tainted_Src_Calls);
+        System.out.println(T_M.Taint_Ratio);*/
         
         return T_M;
     }
