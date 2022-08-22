@@ -3,7 +3,7 @@
  * 
  * file : code related to Taint metrics
  * src date: 16.08.2022
- * src version: 21.08.2022
+ * src version: 22.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -39,22 +39,21 @@ public class Taint_Metrics {
         * 
         */
 
-        long   Tainted_Var;
-        double Taint_Ratio;
+        /*long   Tainted_Var; // not calculated in this version
         long   San_Tainted_Var;
         long   Unsan_Tainted_Var;
         long   San_Passed_To_Unsec_Funcs;
-        long   Unsan_Passed_To_Unsec_Funcs;
+        long   Unsan_Passed_To_Unsec_Funcs;*/
         long   Tainted_Src_Calls;
-        
+        double Taint_Ratio;
         public Taint_Met()
         {
-            Tainted_Var = 0;
+            //Tainted_Var = 0;
+            //San_Tainted_Var = 0;
+            //Unsan_Tainted_Var = 0;
+            //San_Passed_To_Unsec_Funcs = 0;
+            //Unsan_Passed_To_Unsec_Funcs = 0;
             Taint_Ratio = 0;
-            San_Tainted_Var = 0;
-            Unsan_Tainted_Var = 0;
-            San_Passed_To_Unsec_Funcs = 0;
-            Unsan_Passed_To_Unsec_Funcs = 0;
             Tainted_Src_Calls = 0;
         }
     }
