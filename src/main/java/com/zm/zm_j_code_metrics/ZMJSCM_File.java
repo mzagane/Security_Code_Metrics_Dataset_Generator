@@ -222,5 +222,13 @@ public class ZMJSCM_File {
     public void setToken_List(List<Token> Token_List) {
         this.Token_List = Token_List;
     }
+
+    public Taint_Metrics.Taint_Met getFile_Taint_Metrics() {
+        return File_Taint_Metrics;
+    }
+
+    public void setFile_Taint_Metrics(Taint_Metrics.Taint_Met File_Taint_Metrics) {
+        this.File_Taint_Metrics = File_Taint_Metrics;
+    }
     
 }

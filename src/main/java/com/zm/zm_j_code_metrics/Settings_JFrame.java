@@ -87,9 +87,6 @@ public class Settings_JFrame extends javax.swing.JFrame {
         C_Tainted_SRC_Funcs_jTextField.setText(Settings.Languages_Settings_Props.getProperty("C_TAINTED_SRC_FUNCS"));
     }
     
-    
-    
-    
     /**
      * Creates new form Settings_JFrame
      */

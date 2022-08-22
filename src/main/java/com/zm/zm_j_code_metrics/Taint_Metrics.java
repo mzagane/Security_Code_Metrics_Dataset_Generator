@@ -3,7 +3,7 @@
  * 
  * file : code related to Taint metrics
  * src date: 16.08.2022
- * src version: 16.08.2022
+ * src version: 21.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -169,7 +169,7 @@ public class Taint_Metrics {
     }
     
     
-    public static Taint_Met Get_Taint_MGet_Total_Funcs_Callset (Node XML_Node, String Language) throws XPathExpressionException
+    public static Taint_Met Get_Taint_Met (Node XML_Node, String Language) throws XPathExpressionException
     {        
         Taint_Met  T_M = new Taint_Met();
         
