@@ -2,7 +2,7 @@
  * ZM J Code Metrics
  * 
  * file : the ZM J Code Metrics Project class
- * src version: 01.06.2020
+ * src version: 22.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -21,10 +21,10 @@ import org.w3c.dom.NodeList;
  */
 public class Project {
     
-    public String Source; // src file name, src dir name, src archive
-    public String XML_File; // the generated srcML XML file name 
-    public String Name; // project name
-    public List<ZMJSCM_File> Files; // list of file
+    private String Source; // src file name, src dir name, src archive
+    private String XML_File; // the generated srcML XML file name 
+    private String Name; // project name
+    private List<ZMJSCM_File> Files; // list of file
 
     private void Get_Files()
     {
@@ -41,14 +41,14 @@ public class Project {
             {    
                 A_ZMJSCM_File = new ZMJSCM_File();
                                 
-                A_ZMJSCM_File.XML_Data =  Files_XML_Data.item(i);
+                A_ZMJSCM_File.setXML_Data (Files_XML_Data.item(i));
                 
                 
-                A_ZMJSCM_File.Language =Src_ML_P.Extract_File_Language(A_ZMJSCM_File.XML_Data) ;
-                A_ZMJSCM_File.Name = Src_ML_P.Extract_File_Name(A_ZMJSCM_File.XML_Data) ;
+                A_ZMJSCM_File.setLanguage(Src_ML_P.Extract_File_Language(A_ZMJSCM_File.getXML_Data())) ;
+                A_ZMJSCM_File.setName(Src_ML_P.Extract_File_Name(A_ZMJSCM_File.getXML_Data())) ;
                          
                 A_ZMJSCM_File.Get_Functions(); // extract file's function
-                A_ZMJSCM_File.Get_Metrics(); // get file metrics
+                A_ZMJSCM_File.Calculate_Metrics(); // get file metrics
                 
                 Files.add(A_ZMJSCM_File); // add to the list
             }
@@ -65,8 +65,40 @@ public class Project {
      */
     public void Init()
     {
-        Get_Files();
+        this.Get_Files();
         
+    }
+
+    public String getSource() {
+        return Source;
+    }
+
+    public void setSource(String Source) {
+        this.Source = Source;
+    }
+
+    public String getXML_File() {
+        return XML_File;
+    }
+
+    public void setXML_File(String XML_File) {
+        this.XML_File = XML_File;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    public List<ZMJSCM_File> getFiles() {
+        return Files;
+    }
+
+    public void setFiles(List<ZMJSCM_File> Files) {
+        this.Files = Files;
     }
     
 }
