@@ -40,8 +40,6 @@ public class ZMJSCM_File {
     // Halstead Metrics
     private Halstead_Metrics.Halst_Met File_Halstead_Metrics ;
         
-    
-    
     //Tokens, operand and operator
     private List<Halstead_Operator> Halstead_Operator_List;
     private List<Halstead_Operand> Halstead_Operand_List;
@@ -60,7 +58,7 @@ public class ZMJSCM_File {
         {
             NodeList Functions_XML_Data = Src_ML_P.Extract_Functions_XML_Data(XML_Data);
             
-            Node nNode = null;
+            Node nNode;
             for (int i=0; i<Functions_XML_Data.getLength(); i++)
             {    
                 
