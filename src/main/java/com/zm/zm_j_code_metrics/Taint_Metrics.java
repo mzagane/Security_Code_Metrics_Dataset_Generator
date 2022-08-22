@@ -64,6 +64,7 @@ public class Taint_Metrics {
      * @param XML_Node : the XML representation of the code 
      * @param Language : the source language
      * @return  : list of all tainted variables
+     * @throws javax.xml.xpath.XPathExpressionException
      */
     public static List<String> Get_Tainted_Var_List (Node XML_Node, String Language) throws XPathExpressionException
     {
@@ -80,7 +81,7 @@ public class Taint_Metrics {
         NodeList Funcs_Calls_Node_List = eXML_Node.getElementsByTagName("call");
         Node A_Funcs_Calls_Node;
         
-        String Xpath_Expression = "";	        
+        String Xpath_Expression;	        
         NodeList Xpath_Node_List;
         XPath xPath =  XPathFactory.newInstance().newXPath();
         
