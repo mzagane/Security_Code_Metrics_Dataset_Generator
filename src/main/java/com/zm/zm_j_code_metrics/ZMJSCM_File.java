@@ -52,6 +52,10 @@ public class ZMJSCM_File {
     //Taint Metrics
     private Taint_Metrics.Taint_Met File_Taint_Metrics ;
     
+    // Memory Management Metrics
+    private Mem_Mgmt_Metrics.Mem_Mgmt_Met File_Mem_Mgmt_Metrics;
+    
+    
     public void Get_Functions()
     {
         SrcML_Processor Src_ML_P = new SrcML_Processor();
@@ -117,6 +121,9 @@ public class ZMJSCM_File {
         } catch (XPathExpressionException ex) {
             Logger.getLogger(ZMJSCM_File.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //Memory Management Metrics
+        File_Mem_Mgmt_Metrics = Mem_Mgmt_Metrics.Calculate_Mem_Mgmt_Met(this.XML_Data, Language);
     }
 
     public String getName() {
@@ -229,6 +236,14 @@ public class ZMJSCM_File {
 
     public void setFile_Taint_Metrics(Taint_Metrics.Taint_Met File_Taint_Metrics) {
         this.File_Taint_Metrics = File_Taint_Metrics;
+    }
+
+    public Mem_Mgmt_Metrics.Mem_Mgmt_Met getFile_Mem_Mgmt_Metrics() {
+        return File_Mem_Mgmt_Metrics;
+    }
+
+    public void setFile_Mem_Mgmt_Metrics(Mem_Mgmt_Metrics.Mem_Mgmt_Met File_Mem_Mgmt_Metrics) {
+        this.File_Mem_Mgmt_Metrics = File_Mem_Mgmt_Metrics;
     }
     
 }

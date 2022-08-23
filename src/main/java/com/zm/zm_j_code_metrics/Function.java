@@ -50,8 +50,10 @@ public class Function {
     //Taint Metrics
     private  List<Variable> Vars_List;
     private  List<String> Tainted_Vars_List;
-    
     private Taint_Metrics.Taint_Met Function_Taint_Metrics;
+    
+    // Memory Management Metrics
+    private Mem_Mgmt_Metrics.Mem_Mgmt_Met Function_Mem_Mgmt_Metrics;
     
     public void Calculate_Metrics() throws XPathExpressionException
     {
@@ -84,6 +86,9 @@ public class Function {
         
         //Taint Metrics
         Function_Taint_Metrics = Taint_Metrics.Calculate_Taint_Met(this.XML_Data, Language);
+        
+        //Memory Management Metrics
+        Function_Mem_Mgmt_Metrics = Mem_Mgmt_Metrics.Calculate_Mem_Mgmt_Met(this.XML_Data, Language);
         
     }
 
@@ -205,6 +210,14 @@ public class Function {
 
     public Taint_Metrics.Taint_Met getFunction_Taint_Metrics() {
         return Function_Taint_Metrics;
+    }
+
+    public Mem_Mgmt_Metrics.Mem_Mgmt_Met getFunction_Mem_Mgmt_Metrics() {
+        return Function_Mem_Mgmt_Metrics;
+    }
+
+    public void setFunction_Mem_Mgmt_Metrics(Mem_Mgmt_Metrics.Mem_Mgmt_Met Function_Mem_Mgmt_Metrics) {
+        this.Function_Mem_Mgmt_Metrics = Function_Mem_Mgmt_Metrics;
     }
     
     

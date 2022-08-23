@@ -183,10 +183,16 @@ public class Mem_Mgmt_Metrics {
             }
             
         }
-        /*//debugging
-        System.out.println(Get_Total_Funcs_Calls(XML_Node));
-        System.out.println(T_M.Tainted_Src_Calls);
-        System.out.println(T_M.Taint_Ratio);*/
+        //debugging
+        System.out.println("malloc : "+MEM_M.Mem_Alloc);
+        System.out.println("realloc : "+MEM_M.Mem_Realloc);
+        System.out.println("dealloc : "+MEM_M.Mem_Dealloc);
+        System.out.println("Total pointers : "+MEM_M.Total_Pointers);
+        System.out.println("double pointers : "+MEM_M.Double_Pointers);
+        System.out.println("initialized pointers : "+MEM_M.Init_Pointers);
+        System.out.println("uninitialized pointers : "+MEM_M.Uninit_Pointers);
+                
+                
         
         return MEM_M;
     }
