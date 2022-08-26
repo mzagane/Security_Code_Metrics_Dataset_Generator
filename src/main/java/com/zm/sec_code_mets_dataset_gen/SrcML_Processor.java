@@ -7,7 +7,7 @@
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
  */
-package com.zm.zm_j_code_metrics;
+package com.zm.sec_code_mets_dataset_gen;
 
 import java.io.IOException;
 import java.io.StringWriter;

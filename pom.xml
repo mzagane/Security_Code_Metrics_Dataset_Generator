@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.zm.zm_j_code_metrics_2</groupId>
-    <artifactId>ZM_J_Code_Metrics_2</artifactId>
+    <artifactId>Security_Code_Metrics_Dataset_Generator</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
@@ -20,5 +20,5 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-
+    <name>Security_Code_Metrics_Dataset_Generator</name>
 </project>

@@ -7,7 +7,7 @@
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
  */
-package com.zm.zm_j_code_metrics;
+package com.zm.sec_code_mets_dataset_gen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,22 +31,10 @@ public class Function {
     private long Blank_Lines; // Number of empty and blank lines
     
     private int McCab_Number; // the cyclomatic complexity
-    
-    
-    // Halstead Metrics
-    private Halstead_Metrics.Halst_Met Function_Halstead_Metrics ;
-    
-    
+       
     //other
     private List<String> Temp;
-    
-    
-    //List of Tokens, halstead operators and operands
-    private List<Halstead_Operator> Halstead_Operator_List;
-    private List<Halstead_Operand> Halstead_Operand_List;
-    private List<Token> Token_List ;
-    
-    
+         
     //Taint Metrics
     private  List<Variable> Vars_List;
     private  List<String> Tainted_Vars_List;
@@ -67,18 +55,6 @@ public class Function {
         Blank_Lines = Temp.size()/2;
         //----
         
-        //McCab
-        McCab_Number = McCab_Metrics.Get_McCab_Number(this.XML_Data, this.Language);
-                
-        //Halstead
-        Function_Halstead_Metrics =  Halstead_Metrics.Get_Halst_Met(this.XML_Data, this.Language);
-       
-        //Tokens, halstead operators and operands
-        Token_List = new ArrayList();
-        Tokeniser.Generate_Token_List(XML_Data, Token_List, Language);
-        Halstead_Operand_List = Halstead_Metrics.Get_Halstead_Operand_List(Token_List);
-        Halstead_Operator_List = Halstead_Metrics.Get_Halstead_Operator_List(Token_List);
-        
         //Debbuging : 
         //Vars list
         //Vars_List = Utils.Get_Variables_List (this.XML_Data, "C");
@@ -91,19 +67,7 @@ public class Function {
         Function_Mem_Mgmt_Metrics = Mem_Mgmt_Metrics.Calculate_Mem_Mgmt_Met(this.XML_Data, Language);
         
     }
-
-    public void setHalstead_Operator_List(List<Halstead_Operator> Halstead_Operator_List) {
-        this.Halstead_Operator_List = Halstead_Operator_List;
-    }
-
-    public void setHalstead_Operand_List(List<Halstead_Operand> Halstead_Operand_List) {
-        this.Halstead_Operand_List = Halstead_Operand_List;
-    }
-
-    public void setToken_List(List<Token> Token_List) {
-        this.Token_List = Token_List;
-    }
-
+    
     public void setName(String Name) {
         this.Name = Name;
     }
@@ -130,10 +94,6 @@ public class Function {
 
     public void setMcCab_Number(int McCab_Number) {
         this.McCab_Number = McCab_Number;
-    }
-
-    public void setFunction_Halstead_Metrics(Halstead_Metrics.Halst_Met Function_Halstead_Metrics) {
-        this.Function_Halstead_Metrics = Function_Halstead_Metrics;
     }
 
     public void setTemp(List<String> Temp) {
@@ -179,27 +139,6 @@ public class Function {
     public int getMcCab_Number() {
         return McCab_Number;
     }
-
-    public Halstead_Metrics.Halst_Met getFunction_Halstead_Metrics() {
-        return Function_Halstead_Metrics;
-    }
-
-    public List<String> getTemp() {
-        return Temp;
-    }
-
-    public List<Halstead_Operator> getHalstead_Operator_List() {
-        return Halstead_Operator_List;
-    }
-
-    public List<Halstead_Operand> getHalstead_Operand_List() {
-        return Halstead_Operand_List;
-    }
-
-    public List<Token> getToken_List() {
-        return Token_List;
-    }
-
     public List<Variable> getVars_List() {
         return Vars_List;
     }

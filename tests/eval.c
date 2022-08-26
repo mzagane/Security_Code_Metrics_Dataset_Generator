@@ -38,6 +38,27 @@ exit(0);
 else if(i==strlen(ch)) /* Il n´a a pad d´opérateur */
 {
 printf("erreur : pas de <operator>");
+val1=(char*) malloc((i+1)*sizeof(char));
+val1=(char*) mymalloc((i+1)*sizeof(char));
+val1=(char*) Kmalloc((i+1)*sizeof(char));
+val1=(char*) KVmalloc((i+1)*sizeof(char));
+val1=(char*) malloc_SOMETHING((i+1)*sizeof(char));
+
+
+val1=(char*) Calloc((i+1)*sizeof(char));
+val1=(char*) calloc((i+1)*sizeof(char));
+val1=(char*) MY_calloc((i+1)*sizeof(char));
+val1=(char*) calloc_SOMETHING((i+1)*sizeof(char));
+
+val1=(char*) REalloc((i+1)*sizeof(char));
+val1=(char*) realloc((i+1)*sizeof(char));
+val1=(char*) MY_realloc((i+1)*sizeof(char));
+val1=(char*) realloc_SOMETHING((i+1)*sizeof(char));
+
+free(val1);
+
+FREE(val1);
+YOUR_free(val1);
 exit(0);
 }
 /* char Extraction de la chaîne de caractère correspondant au
@@ -77,6 +98,16 @@ printf("Erreur : impossible de diviser par 0");
 exit(0);
 }
 }
+
+float * p;
+
+(int *) p = 5;
+
+int result=sumHash(((char *) &myVar)[0], 
+                       ((char *) &myVar)[1],
+                       ((char *) &myVar)[2],
+                       ((char *) &myVar)[3]);
+
 return resultat;
 }
 /* Fonction qui extrait une sous-chaîne de chaîne1 dans chaîne2,
@@ -96,6 +127,7 @@ i++;
 }*
 char2='\n';
 }
+ 
 int main(int argc, char** argv)
 {
 int res;

@@ -7,7 +7,7 @@
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
  */
-package com.zm.zm_j_code_metrics;
+package com.zm.sec_code_mets_dataset_gen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,19 +34,7 @@ public class ZMJSCM_File {
     private long Lines_Of_Comments; // Number of the lines of comments
     private long Blank_Lines;// nuber of empty and blank lines
     private int Number_Of_Functions;// Number of functions and methodes
-    
-    //McCab Metrics
-    private int McCab_Number;
-    
-    // Halstead Metrics
-    private Halstead_Metrics.Halst_Met File_Halstead_Metrics ;
-        
-    //Tokens, operand and operator
-    private List<Halstead_Operator> Halstead_Operator_List;
-    private List<Halstead_Operand> Halstead_Operand_List;
-    private List<Token> Token_List ;
-    
-    
+   
     private List<String> Temp;
     
     //Taint Metrics
@@ -102,19 +90,6 @@ public class ZMJSCM_File {
         Loc_Metrics.Get_Blank_Lines(this.XML_Data, Temp);
         Blank_Lines = Temp.size()/2;
         //----
-        
-        //McCab
-        McCab_Number = McCab_Metrics.Get_McCab_Number(this.XML_Data, this.Language);
-        
-        //Halstead
-       File_Halstead_Metrics =  Halstead_Metrics.Get_Halst_Met(this.XML_Data, this.Language);
-       
-       
-       //Tokens , operands and operators
-       Token_List = new ArrayList();
-       Tokeniser.Generate_Token_List(this.XML_Data, Token_List, this.Language);
-       Halstead_Operand_List = Halstead_Metrics.Get_Halstead_Operand_List(Token_List);
-       Halstead_Operator_List = Halstead_Metrics.Get_Halstead_Operator_List(Token_List);
        
         try {
             File_Taint_Metrics = Taint_Metrics.Calculate_Taint_Met(this.XML_Data, this.Language);
@@ -190,46 +165,7 @@ public class ZMJSCM_File {
         this.Number_Of_Functions = Number_Of_Functions;
     }
 
-    public int getMcCab_Number() {
-        return McCab_Number;
-    }
-
-    public void setMcCab_Number(int McCab_Number) {
-        this.McCab_Number = McCab_Number;
-    }
-
-    public Halstead_Metrics.Halst_Met getFile_Halstead_Metrics() {
-        return File_Halstead_Metrics;
-    }
-
-    public void setFile_Halstead_Metrics(Halstead_Metrics.Halst_Met File_Halstead_Metrics) {
-        this.File_Halstead_Metrics = File_Halstead_Metrics;
-    }
-
-    public List<Halstead_Operator> getHalstead_Operator_List() {
-        return Halstead_Operator_List;
-    }
-
-    public void setHalstead_Operator_List(List<Halstead_Operator> Halstead_Operator_List) {
-        this.Halstead_Operator_List = Halstead_Operator_List;
-    }
-
-    public List<Halstead_Operand> getHalstead_Operand_List() {
-        return Halstead_Operand_List;
-    }
-
-    public void setHalstead_Operand_List(List<Halstead_Operand> Halstead_Operand_List) {
-        this.Halstead_Operand_List = Halstead_Operand_List;
-    }
-
-    public List<Token> getToken_List() {
-        return Token_List;
-    }
-
-    public void setToken_List(List<Token> Token_List) {
-        this.Token_List = Token_List;
-    }
-
+    
     public Taint_Metrics.Taint_Met getFile_Taint_Metrics() {
         return File_Taint_Metrics;
     }
