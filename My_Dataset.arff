@@ -10,15 +10,18 @@
 @attribute Init_Pointers numeric
 @attribute Uninit_Pointers numeric
 @attribute Pointers_Casting numeric
+@attribute Total_Arrays numeric
+@attribute Fixed_Size_Arrays numeric
+@attribute Variable_Size_Arrays numeric
 
 @attribute Status {clean,vulnerable}
 
 
 @data
 
-0,0.0,0,0,0,3,0,2,1,0,
-1,0.006711409395973154,4,0,15,23,3,9,14,0,
-0,0.0,0,0,0,4,0,2,2,0,
-0,0.0,0,0,2,3,0,0,3,0,
-0,0.0,0,0,0,2,0,1,1,0,
-0,0.0,1,0,0,4,0,2,2,0,
+0,0.0,0,0,0,3,0,2,1,0,0,0,0,
+1,0.006711409395973154,4,0,15,23,3,9,14,0,8,8,0,
+0,0.0,0,0,0,4,0,2,2,0,0,0,0,
+0,0.0,0,0,2,3,0,0,3,0,0,0,0,
+0,0.0,0,0,0,2,0,1,1,0,0,0,0,
+0,0.0,1,0,0,4,0,2,2,0,0,0,0,

@@ -2,7 +2,7 @@
  * ZM J Code Metrics
  * 
  * file : The main window (work space)
- * src version: 22.08.2022
+ * src version: 26.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -16,12 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreePath;
-import javax.swing.tree.TreeSelectionModel;
 
 
 
