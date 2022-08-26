@@ -43,6 +43,10 @@ public class ZMJSCM_File {
     // Memory Management Metrics
     private Mem_Mgmt_Metrics.Mem_Mgmt_Met File_Mem_Mgmt_Metrics;
     
+    // Arrays usage metrics
+    private Array_Usage_Metrics.Arr_Usage_Met File_Array_Usage_Metrics;
+    
+    
     
     public void Get_Functions()
     {
@@ -99,6 +103,10 @@ public class ZMJSCM_File {
         
         //Memory Management Metrics
         File_Mem_Mgmt_Metrics = Mem_Mgmt_Metrics.Calculate_Mem_Mgmt_Met(this.XML_Data, Language);
+        
+        // Arrays usage metrics
+        File_Array_Usage_Metrics = Array_Usage_Metrics.Calculate_Arr_Usage_Met(this.XML_Data, Language);
+        
     }
 
     public String getName() {
