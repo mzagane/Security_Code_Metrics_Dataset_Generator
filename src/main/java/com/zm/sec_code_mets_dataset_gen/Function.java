@@ -43,6 +43,9 @@ public class Function {
     // Memory Management Metrics
     private Mem_Mgmt_Metrics.Mem_Mgmt_Met Function_Mem_Mgmt_Metrics;
     
+    // Arrays usage metrics
+    private Array_Usage_Metrics.Arr_Usage_Met Function_Array_Usage_Metrics;
+    
     public void Calculate_Metrics() throws XPathExpressionException
     {
         //Loc
@@ -65,6 +68,9 @@ public class Function {
         
         //Memory Management Metrics
         Function_Mem_Mgmt_Metrics = Mem_Mgmt_Metrics.Calculate_Mem_Mgmt_Met(this.XML_Data, Language);
+        
+        // Arrays usage metrics
+        Function_Array_Usage_Metrics = Array_Usage_Metrics.Calculate_Arr_Usage_Met(this.XML_Data, Language);
         
     }
     
@@ -157,6 +163,14 @@ public class Function {
 
     public void setFunction_Mem_Mgmt_Metrics(Mem_Mgmt_Metrics.Mem_Mgmt_Met Function_Mem_Mgmt_Metrics) {
         this.Function_Mem_Mgmt_Metrics = Function_Mem_Mgmt_Metrics;
+    }
+
+    public Array_Usage_Metrics.Arr_Usage_Met getFunction_Array_Usage_Metrics() {
+        return Function_Array_Usage_Metrics;
+    }
+
+    public void setFunction_Array_Usage_Metrics(Array_Usage_Metrics.Arr_Usage_Met Function_Array_Usage_Metrics) {
+        this.Function_Array_Usage_Metrics = Function_Array_Usage_Metrics;
     }
     
     
