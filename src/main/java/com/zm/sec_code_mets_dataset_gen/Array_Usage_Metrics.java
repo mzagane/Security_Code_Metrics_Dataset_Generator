@@ -44,17 +44,30 @@ public class Array_Usage_Metrics {
     {        
         Arr_Usage_Met  ARR_M = new Arr_Usage_Met();
         
+        List<Variable> Variables_List = Utils.Get_Variables_List(XML_Node, Language);
+        for (Variable A_Variable : Variables_List) 
+        {
+            
+            if (A_Variable.Is_A_Fixed_Size_Array)
+            {
+                ARR_M.Fixed_Size_Arrays ++;  
+            }                                 
+            
+            if (A_Variable.Is_A_Variable_Size_Array)
+            {
+                ARR_M.Variable_Size_Arrays ++;                
+            }
+        }
+        
+        ARR_M.Total_Arrays = ARR_M.Fixed_Size_Arrays + ARR_M.Variable_Size_Arrays;
+        
+        
         
         //debugging
-        /*System.out.println("malloc : "+MEM_M.Mem_Alloc);
-        System.out.println("realloc : "+MEM_M.Mem_Realloc);
-        System.out.println("dealloc : "+MEM_M.Mem_Dealloc);
-        System.out.println("Total pointers : "+MEM_M.Total_Pointers);
-        System.out.println("double pointers : "+MEM_M.Double_Pointers);
-        System.out.println("initialized pointers : "+MEM_M.Init_Pointers);
-        System.out.println("uninitialized pointers : "+MEM_M.Uninit_Pointers);
-        System.out.println("casted pointers : "+MEM_M.Pointers_Casting);
-        */        
+        System.out.println("Total_Arrays : "+ARR_M.Total_Arrays);
+        System.out.println("Fixed_Size_Arrays : "+ARR_M.Fixed_Size_Arrays);
+        System.out.println("Variable_Size_Arrays : "+ARR_M.Variable_Size_Arrays);
+                
                 
         
         return ARR_M;
