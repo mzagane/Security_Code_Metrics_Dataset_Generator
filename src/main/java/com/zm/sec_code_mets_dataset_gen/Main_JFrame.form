@@ -39,24 +39,19 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="Brows_For_Project_Src_jButton" min="-2" pref="176" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Project_Name_jTextField" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Project_Source_jTextField" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Project_Name_jTextField" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Project_Source_jTextField" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="241" max="32767" attributes="0"/>
@@ -64,7 +59,7 @@
                   <Component id="Close_jButton" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
                   <Component id="Calculate_Metrics_jButton" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
+              <EmptySpace pref="236" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,7 +78,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Brows_For_Project_Src_jButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
               <Component id="Calculate_Metrics_jButton" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="Close_jButton" min="-2" pref="36" max="-2" attributes="0"/>
@@ -100,7 +95,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Project_Source_jTextField">
       <Properties>
-        <Property name="text" type="java.lang.String" value="E:\u005cZM\u005cResearch\u005cMy_Works\u005cCurrent_Works\u005cVulnerabilities_Prediction\u005cUsing_Security-specific_Code_Metrics_to_Predict_C-Cpp_Code_Vulnerabilities\u005cTools\u005cData_Preparation\u005cZM_J_Code_Metrics_2\u005cZM_J_Code_Metrics_2\u005ctests\u005ceval.c" containsInvalidXMLChars="true"/>
+        <Property name="text" type="java.lang.String" value="E:\u005cZM\u005cResearch\u005cMy_Works\u005cCurrent_Works\u005cVulnerabilities_Prediction\u005cUsing_Security-specific_Code_Metrics_to_Predict_C-Cpp_Code_Vulnerabilities\u005cTools\u005cData_Preparation\u005cMy_Dataset_Generation\u005cSecurity_Code_Metrics_Dataset_Generator\u005ctests2" containsInvalidXMLChars="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Calculate_Metrics_jButton">

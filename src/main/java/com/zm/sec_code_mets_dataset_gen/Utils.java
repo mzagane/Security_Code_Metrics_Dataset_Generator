@@ -202,8 +202,10 @@ public class Utils {
                 Logger.getLogger(Utils.class.getName()).log(Level.INFO, "Dataset format : arff");
             }
             Dataset_Header = "@relation vuldataset\n\n";
+            //taint
             Dataset_Header = Dataset_Header + "@attribute Tainted_Src_Calls numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Taint_Ratio numeric\n";
+            //mem
             Dataset_Header = Dataset_Header + "@attribute Mem_Alloc numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Mem_Realloc numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Mem_Dealloc numeric\n";
@@ -212,6 +214,11 @@ public class Utils {
             Dataset_Header = Dataset_Header + "@attribute Init_Pointers numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Uninit_Pointers numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Pointers_Casting numeric\n";          
+            //Array
+            Dataset_Header = Dataset_Header + "@attribute Total_Arrays numeric\n";
+            Dataset_Header = Dataset_Header + "@attribute Fixed_Size_Arrays numeric\n";
+            Dataset_Header = Dataset_Header + "@attribute Variable_Size_Arrays numeric\n";          
+            
             
             Dataset_Header = Dataset_Header + "\n@attribute Status {clean,vulnerable}\n\n";
             
@@ -251,6 +258,9 @@ public class Utils {
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Init_Pointers + ","+
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Uninit_Pointers + ","+
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Pointers_Casting + ","+
+                                   A_File_Functions.get(j).getFunction_Array_Usage_Metrics().Total_Arrays + ","+
+                                   A_File_Functions.get(j).getFunction_Array_Usage_Metrics().Fixed_Size_Arrays + ","+
+                                   A_File_Functions.get(j).getFunction_Array_Usage_Metrics().Variable_Size_Arrays + ","+
                                    Label;
                                    
                     Dataset.add(Dataset_Line);
