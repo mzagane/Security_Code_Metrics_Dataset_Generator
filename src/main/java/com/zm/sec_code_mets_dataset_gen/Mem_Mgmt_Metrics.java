@@ -276,7 +276,7 @@ public class Mem_Mgmt_Metrics {
         
         MEM_M.Pointers_Casting = Calculate_Pointers_Casting (XML_Node, Language);
         //debugging
-        System.out.println("malloc : "+MEM_M.Mem_Alloc);
+        /*System.out.println("malloc : "+MEM_M.Mem_Alloc);
         System.out.println("realloc : "+MEM_M.Mem_Realloc);
         System.out.println("dealloc : "+MEM_M.Mem_Dealloc);
         System.out.println("Total pointers : "+MEM_M.Total_Pointers);
@@ -284,7 +284,7 @@ public class Mem_Mgmt_Metrics {
         System.out.println("initialized pointers : "+MEM_M.Init_Pointers);
         System.out.println("uninitialized pointers : "+MEM_M.Uninit_Pointers);
         System.out.println("casted pointers : "+MEM_M.Pointers_Casting);
-                
+        */        
                 
         
         return MEM_M;
