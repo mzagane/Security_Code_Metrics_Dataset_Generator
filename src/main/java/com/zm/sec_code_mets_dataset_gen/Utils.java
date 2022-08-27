@@ -201,7 +201,7 @@ public class Utils {
             {
                 Logger.getLogger(Utils.class.getName()).log(Level.INFO, "Dataset format : arff");
             }
-            Dataset_Header = "@relation vuldataset\n\n";
+            Dataset_Header = "@relation Sec_Code_Metrics_Dataset\n\n";
             //taint
             Dataset_Header = Dataset_Header + "@attribute Tainted_Src_Calls numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Taint_Ratio numeric\n";
@@ -209,6 +209,8 @@ public class Utils {
             Dataset_Header = Dataset_Header + "@attribute Mem_Alloc numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Mem_Realloc numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Mem_Dealloc numeric\n";
+            Dataset_Header = Dataset_Header + "@attribute Mem_Access numeric\n";
+            
             Dataset_Header = Dataset_Header + "@attribute Total_Pointers numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Double_Pointers numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Init_Pointers numeric\n";
@@ -234,14 +236,13 @@ public class Utils {
             {
                 A_File_Functions = Project_Files.get(i).getFunctions();
                 // get function label from file name because each file contain one function
-                String File_Name = Project_Files.get(i).getName();
-                System.out.println(File_Name);
-                String s = File_Name.substring(0, 1);
-                if("0".equals(s))
+                String A_File_Name = Project_Files.get(i).getName();              
+                String Label_From_File_Name = A_File_Name. substring(A_File_Name.length()-3, A_File_Name.length()-2);
+                if("0".equals(Label_From_File_Name))
                 {
                     Label = "clean";
                 }
-                else if("1".equals(s))
+                else if("1".equals(Label_From_File_Name))
                 {
                     Label = "vulnerable";
                 }
@@ -253,6 +254,7 @@ public class Utils {
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Mem_Alloc + ","+
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Mem_Realloc + ","+
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Mem_Dealloc + ","+
+                                   A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Mem_Access + ","+
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Total_Pointers + ","+
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Double_Pointers + ","+
                                    A_File_Functions.get(j).getFunction_Mem_Mgmt_Metrics().Init_Pointers + ","+
