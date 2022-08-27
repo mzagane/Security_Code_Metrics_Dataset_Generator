@@ -152,6 +152,8 @@ public class Config
             //C
             //Functions that return a tainted value
             defaultProps.setProperty("C_TAINTED_SRC_FUNCS", "localeconv fgetc getc getchar fgetwc getwc getwchar getenv fscanf vfscanf vscanf fgets fread fwscanf vfws-canf vwscanf wscanf fgetws scanf");
+            defaultProps.setProperty("C_MEM_ACCESS_FUNCS", "fgets fgetws mbstowcs wcstombs mbrtoc16 mbrtoc32 mbsrtowcs wcsrtombs mbtowc mbrtowc mblen mbrlen memchr wmemchr memset wmemset strftime wcsftime strxfrm wcsxfrm strncat wcsncat snprintf vsnprintf swprintf vswprintf setvbuf tmpnam_s snprintf_s sprintf_s vsnprintf_s vsprintf_s gets_s getenv_s wctomb_s mbstowcs_s wcstombs_s memcpy_s memmove_s strncpy_s strncat_s strtok_s strerror_s strnlen_s asctime_s ctime_s snwprintf_s swprintf_s vsnwprintf_s vswprintf_s wcsncpy_s wmemcpy_s wmemmove_s wcsncat_s wcstok_s wcsnlen_s wcrtomb_s mbsrtowcs_s wcsrtombs_s memset_s memcpy wmemcpy memmove wmemmove strncpy wcsncpy memcmp wmemcmp strncmp wcsncmp strcpy_s wcscpy_s strcat_s wcscat_s");
+            
             
             //C++
              
@@ -214,7 +216,7 @@ public class Config
             String C_TAINTED_SRC_FUNCS
     )
     {
-        OutputStream outputStream = null;
+        OutputStream Settings_Output_Stream = null;
         try /*throws IOException*/ 
         {
             //c++
@@ -243,9 +245,9 @@ public class Config
             Languages_Settings_Props.setProperty("C_TAINTED_SRC_FUNCS", C_TAINTED_SRC_FUNCS);
             
             
-            outputStream = new FileOutputStream(Languages_Settings_File);
-            Languages_Settings_Props.store(outputStream, "Languages Settings");
-            outputStream.close();
+            Settings_Output_Stream = new FileOutputStream(Languages_Settings_File);
+            Languages_Settings_Props.store(Settings_Output_Stream, "Languages Settings");
+            Settings_Output_Stream.close();
         } 
         catch (FileNotFoundException ex) 
         {
@@ -259,7 +261,7 @@ public class Config
         {
             try 
             {
-                outputStream.close();
+                Settings_Output_Stream.close();
             } 
             catch (IOException ex) 
             {
