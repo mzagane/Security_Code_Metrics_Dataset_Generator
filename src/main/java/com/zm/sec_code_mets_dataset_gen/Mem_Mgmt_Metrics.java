@@ -10,6 +10,8 @@
  */
 package com.zm.sec_code_mets_dataset_gen;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +35,8 @@ public class Mem_Mgmt_Metrics {
         * Mem_Alloc                 : Total number of call to memory allocation funcs
         * Mem_Realloc               : Total number of call to memory reallocation funcs
         * Mem_Dealloc               : Total number of call to memory de-allocation funcs
+        * Mem_Access                : Total number of call to library funcs that access mem (take in argument pointers) 
+        *                             take a lock in : page 218,219, 221... (SEI cert C...)
         * Total_Pointers            : Total number of pointers
         * Double_Pointers           : Number of double pointers
         * Init_Pointers             : Number of initialized pointers
@@ -44,6 +48,7 @@ public class Mem_Mgmt_Metrics {
         long   Mem_Alloc; 
         long   Mem_Realloc;
         long   Mem_Dealloc;
+        long   Mem_Access;
         long   Total_Pointers;
         long   Double_Pointers;
         long   Init_Pointers;
@@ -56,6 +61,7 @@ public class Mem_Mgmt_Metrics {
             Mem_Alloc = 0; 
             Mem_Realloc = 0;
             Mem_Dealloc = 0;
+            Mem_Access = 0;
             Total_Pointers = 0;
             Double_Pointers = 0;
             Init_Pointers = 0;
@@ -152,6 +158,35 @@ public class Mem_Mgmt_Metrics {
     }
     
     /**
+     * calculating the number of calls to Library funcs that access memory (take pointer in parameters)
+     */
+    private static long Calculate_Mem_Access(Node XML_Node, String Language)
+    {
+        long Mem_Access = 0;
+        
+        // Load from config file the list of funcs that access mem 
+        List<String> C_MEM_ACCESS_FUNCS ; 
+        Config Settings = new Config(); 
+        Settings.Load_Languages_Settings();
+        C_MEM_ACCESS_FUNCS = new ArrayList<>( Arrays.asList(Settings.Languages_Settings_Props.getProperty("C_MEM_ACCESS_FUNCS").split(" ")));
+        
+        Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
+        NodeList Funcs_Calls_Node_List = eXML_Node.getElementsByTagName("call");
+        Node A_Funcs_Calls_Node;        
+        
+        for (int i=0; i<Funcs_Calls_Node_List.getLength(); i++)
+        {
+            A_Funcs_Calls_Node = Funcs_Calls_Node_List.item(i);
+            String Func_Name = ((Element) A_Funcs_Calls_Node).getElementsByTagName("name").item(0).getTextContent();
+            if (C_MEM_ACCESS_FUNCS.contains(Func_Name)) // if the func is part of the tainted src
+            {   
+                Mem_Access++;
+            }
+        }
+        return Mem_Access;
+    }
+    
+    /**
      * calculating the number of pointer casting
      * Only casting like : ' ptr = (some_type *) ' is considered 
      */
@@ -236,9 +271,10 @@ public class Mem_Mgmt_Metrics {
     {        
         Mem_Mgmt_Met  MEM_M = new Mem_Mgmt_Met();
         
-        MEM_M.Mem_Alloc = Calculate_Mem_Alloc(XML_Node, Language);
+        MEM_M.Mem_Alloc   = Calculate_Mem_Alloc(XML_Node, Language);
         MEM_M.Mem_Realloc = Calculate_Mem_Realloc(XML_Node, Language);
         MEM_M.Mem_Dealloc = Calculate_Mem_Dealloc(XML_Node, Language);
+        MEM_M.Mem_Access  = Calculate_Mem_Access(XML_Node, Language);
         
         List<Variable> Variables_List = Utils.Get_Variables_List(XML_Node, Language);
         for (Variable A_Variable : Variables_List) 
