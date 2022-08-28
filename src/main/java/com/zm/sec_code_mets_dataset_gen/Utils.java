@@ -371,7 +371,7 @@ public class Utils {
         
         // variable needed to make an XPath query
         String Xpath_Expression;	        
-        NodeList Xpath_Node_List, Xpath_Node_List2;
+        NodeList Xpath_Node_List;
         XPath xPath =  XPathFactory.newInstance().newXPath();
         Xpath_Expression = "expr/name";
         
