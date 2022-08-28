@@ -67,6 +67,7 @@ public class Function {
         Temp = new ArrayList();
         Loc_Metrics.Get_Blank_Lines(this.XML_Data, Temp);
         Blank_Lines = Temp.size()/2;
+        Temp.clear();
         //----
         
         //Debbuging : 

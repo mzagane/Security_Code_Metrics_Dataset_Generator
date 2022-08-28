@@ -53,7 +53,7 @@ public class Mem_Mgmt_Metrics {
         long   Init_Pointers;
         long   Uninit_Pointers;
         long   Pointers_Casting;
-        long   Pointer_Arithmetic;
+        //long   Pointer_Arithmetic;
         
         public Mem_Mgmt_Met()
         {
@@ -66,7 +66,7 @@ public class Mem_Mgmt_Metrics {
             Init_Pointers = 0;
             Uninit_Pointers = 0;
             Pointers_Casting = 0;
-            Pointer_Arithmetic = 0;
+            //Pointer_Arithmetic = 0;
         }
     }
     
@@ -113,11 +113,14 @@ public class Mem_Mgmt_Metrics {
         Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
         NodeList Funcs_Calls_Node_List = eXML_Node.getElementsByTagName("call");
         Node A_Funcs_Calls_Node;        
+        Element A_Funcs_Calls_Element;
         
         for (int i=0; i<Funcs_Calls_Node_List.getLength(); i++)
         {
             A_Funcs_Calls_Node = Funcs_Calls_Node_List.item(i);
-            String Func_Name = ((Element) A_Funcs_Calls_Node).getElementsByTagName("name").item(0).getTextContent();
+            A_Funcs_Calls_Element = (Element) A_Funcs_Calls_Node;
+            
+            String Func_Name = A_Funcs_Calls_Element.getElementsByTagName("name").item(0).getTextContent();
             if (Func_Name.toLowerCase().contains("realloc"))
             {   
                 Mem_Realloc++;
@@ -141,12 +144,14 @@ public class Mem_Mgmt_Metrics {
         
         Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
         NodeList Funcs_Calls_Node_List = eXML_Node.getElementsByTagName("call");
-        Node A_Funcs_Calls_Node;        
+        Node A_Funcs_Calls_Node;
+        Element A_Funcs_Calls_Element;
         
         for (int i=0; i<Funcs_Calls_Node_List.getLength(); i++)
         {
             A_Funcs_Calls_Node = Funcs_Calls_Node_List.item(i);
-            String Func_Name = ((Element) A_Funcs_Calls_Node).getElementsByTagName("name").item(0).getTextContent();
+            A_Funcs_Calls_Element = (Element) A_Funcs_Calls_Node;
+            String Func_Name = A_Funcs_Calls_Element.getElementsByTagName("name").item(0).getTextContent();
             if (Func_Name.toLowerCase().contains("free"))
             {   
                 Mem_Dealloc++;
@@ -182,6 +187,10 @@ public class Mem_Mgmt_Metrics {
                 Mem_Access++;
             }
         }
+        
+        C_MEM_ACCESS_FUNCS.clear();
+        Settings = null;
+        
         return Mem_Access;
     }
     
@@ -208,11 +217,12 @@ public class Mem_Mgmt_Metrics {
         NodeList Xpath_Node_List, Xpath_Node_List2;
         XPath xPath =  XPathFactory.newInstance().newXPath();
         //Xpath_Expression = "expr/operator";
+        List<Variable> Variables_List = Utils.Get_Variables_List(XML_Node, Language);
+        Xpath_Expression = "operator";
         
         for (int i=0; i<Expr_Stmt_Node_List.getLength(); i++) // for each "expr" tag
         {
             // get the list of the 'operator' childs
-            Xpath_Expression = "operator";
             try 
             { 
                 An_Expr_Stmt_Node = Expr_Stmt_Node_List.item(i);
@@ -230,11 +240,8 @@ public class Mem_Mgmt_Metrics {
                     if (Xpath_Node_List2.getLength()>0)
                     {
                         Var_Name = Xpath_Node_List2.item(0).getTextContent();
-                        
-                        List<Variable> Variables_List = Utils.Get_Variables_List(XML_Node, Language);
                         for (Variable A_Variable : Variables_List) 
-                        {
-            
+                        {           
                             if (
                                     (A_Variable.Variable_Name.equals(Var_Name)) 
                                     && 
@@ -256,16 +263,17 @@ public class Mem_Mgmt_Metrics {
                 Logger.getLogger(Mem_Mgmt_Metrics.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        Variables_List.clear();
         return Pointers_Casting;
     }
-    
+    /*
     private static long Calculate_Pointer_Arithmetic (Node XML_Node, String Language)
     {
         long Pointer_Arithmetic=0;
         
         return Pointer_Arithmetic;
     }
-    
+    */
     public static Mem_Mgmt_Met Calculate_Mem_Mgmt_Met (Node XML_Node, String Language)
     {        
         Mem_Mgmt_Met  MEM_M = new Mem_Mgmt_Met();
@@ -320,8 +328,7 @@ public class Mem_Mgmt_Metrics {
         System.out.println("uninitialized pointers : "+MEM_M.Uninit_Pointers);
         System.out.println("casted pointers : "+MEM_M.Pointers_Casting);
         */        
-                
-        
+        Variables_List.clear();   
         return MEM_M;
     }
     

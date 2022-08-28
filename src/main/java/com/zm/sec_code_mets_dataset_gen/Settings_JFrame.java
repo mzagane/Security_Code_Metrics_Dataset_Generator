@@ -2,7 +2,7 @@
  * ZM J Code Metrics
  * 
  * file : the settings window
- * src version: 01.06.2020
+ * src version: 28.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr

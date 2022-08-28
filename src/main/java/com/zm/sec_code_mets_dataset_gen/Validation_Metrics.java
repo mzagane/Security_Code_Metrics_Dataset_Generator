@@ -38,14 +38,14 @@ public class Validation_Metrics {
         * Valid_Ratio               : (If_Stmts_Tainted_Vars) + If_Stmts_Pointers + If_Stmts_Arrays  / Total_Number_Of_If_Stmt
         */
 
-        long     If_Stmts_Tainted_Vars; // not calculated in this version (tainted vars not supported yet :( )
+        //long     If_Stmts_Tainted_Vars; // not calculated in this version (tainted vars not supported yet :( )
         long     If_Stmts_Pointers;
         long     If_Stmts_Indexes;
         double   Validation_Ratio;
         
         public Valid_Met()
         {
-            If_Stmts_Tainted_Vars = 0; 
+            //If_Stmts_Tainted_Vars = 0; 
             If_Stmts_Pointers = 0;
             If_Stmts_Indexes = 0; 
             Validation_Ratio = 0;
@@ -60,9 +60,10 @@ public class Validation_Metrics {
         // get all 'if' tag
         Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
         NodeList If_Stmts_Node_List = eXML_Node.getElementsByTagName("if");
-        
-        
-        return If_Stmts_Node_List.getLength();
+        long Total_Number_Of_If_Stmts = If_Stmts_Node_List.getLength();
+        If_Stmts_Node_List = null;
+        System.gc(); // run garbage collector
+        return Total_Number_Of_If_Stmts;
     } 
     
     /**
@@ -77,6 +78,7 @@ public class Validation_Metrics {
         Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
         NodeList If_Stmts_Node_List = eXML_Node.getElementsByTagName("if");
         Node An_If_Stmts_Node; 
+        List<Variable> Variables_List = Utils.Get_Variables_List(XML_Node, Language);
         
         // variable needed to make an XPath query
         String Xpath_Expression;	        
@@ -99,9 +101,7 @@ public class Validation_Metrics {
                 {
                     //check if the variable is a pointer :
                     // get the variable name, and search in the variable list
-                    String Var_Name = Xpath_Node_List.item(j).getTextContent();
-                    List<Variable> Variables_List = Utils.Get_Variables_List(XML_Node, Language);
-                    
+                    String Var_Name = Xpath_Node_List.item(j).getTextContent();                    
                     for (Variable A_Variable : Variables_List) 
                     {
                         if (
@@ -131,6 +131,9 @@ public class Validation_Metrics {
                 Logger.getLogger(Mem_Mgmt_Metrics.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        Variables_List.clear();
+        System.gc(); // run garbage collector
         return If_Stmts_Pointers;
     }
     
@@ -146,7 +149,7 @@ public class Validation_Metrics {
         Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
         NodeList If_Stmts_Node_List = eXML_Node.getElementsByTagName("if");
         Node An_If_Stmts_Node; 
-        
+        List<String> Array_Indexes_List = Utils.Get_Array_Indexes_List(XML_Node, Language);
         // variable needed to make an XPath query
         String Xpath_Expression;	        
         NodeList Xpath_Node_List;
@@ -168,9 +171,7 @@ public class Validation_Metrics {
                 {
                     //check if the variable is an index :
                     // get the variable name, and search in the indexes list
-                    String Var_Name = Xpath_Node_List.item(j).getTextContent();
-                    List<String> Array_Indexes_List = Utils.Get_Array_Indexes_List(XML_Node, Language);
-                    
+                    String Var_Name = Xpath_Node_List.item(j).getTextContent();                                        
                     for (String An_Index : Array_Indexes_List) 
                     {
                         if ( An_Index.equals(Var_Name))
@@ -192,6 +193,9 @@ public class Validation_Metrics {
                 Logger.getLogger(Mem_Mgmt_Metrics.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        Array_Indexes_List.clear();
+        System.gc();
         return If_Stmts_Indexes;
     }
     

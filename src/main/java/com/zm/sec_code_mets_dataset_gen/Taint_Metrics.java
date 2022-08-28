@@ -60,7 +60,7 @@ public class Taint_Metrics {
     
     
     /**
-     * Get the list of all tainted variables
+     * Get the list of all tainted variables (Not finished)
      * @param XML_Node : the XML representation of the code 
      * @param Language : the source language
      * @return  : list of all tainted variables
@@ -107,7 +107,7 @@ public class Taint_Metrics {
     }
     
     /**
-     * Get the list of all tainted variables
+     * Get the list of all tainted source calls
      * @param XML_Node : the XML representation of the code 
      * @param Language : the source language
      * @return  : list of all tainted variables
@@ -135,6 +135,7 @@ public class Taint_Metrics {
                 Tainted_Src_Calls_List.add(Func_Name);
             }
         }
+        C_Tainted_Src_Funcs.clear();
         return Tainted_Src_Calls_List;
     }
     

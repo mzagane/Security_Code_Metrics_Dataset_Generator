@@ -2,7 +2,7 @@
  * ZM J Code Metrics
  * 
  * file : the ZM J Code Metrics Project class
- * src version: 22.08.2022
+ * src version: 28.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -26,7 +26,7 @@ public class Project {
     private String Name; // project name
     private List<ZMJSCM_File> Files; // list of file
 
-    private void Get_Files()
+    private void Setup_Files()
     {
         SrcML_Processor Src_ML_P = new SrcML_Processor();
         Src_ML_P.Load_SrcMl_Doc(this.XML_File);
@@ -47,12 +47,27 @@ public class Project {
                 A_ZMJSCM_File.setLanguage(Src_ML_P.Extract_File_Language(A_ZMJSCM_File.getXML_Data())) ;
                 A_ZMJSCM_File.setName(Src_ML_P.Extract_File_Name(A_ZMJSCM_File.getXML_Data())) ;
                          
-                A_ZMJSCM_File.Get_Functions(); // extract file's function
-                A_ZMJSCM_File.Calculate_Metrics(); // get file metrics
+                A_ZMJSCM_File.Setup_Functions(); // extract file's function
                 
-                Files.add(A_ZMJSCM_File); // add to the list
-            }
+                //A_ZMJSCM_File.Calculate_Metrics(); // calculate file metrics
+                /*
+                * In the dataset, each file contains a function, so no need
+                * to recalculate the metrics for the file (which will slow down the process for no thing)
+                */
+                A_ZMJSCM_File.setFile_Taint_Metrics(A_ZMJSCM_File.getFunctions().get(0).getFunction_Taint_Metrics());
+                A_ZMJSCM_File.setFile_Mem_Mgmt_Metrics(A_ZMJSCM_File.getFunctions().get(0).getFunction_Mem_Mgmt_Metrics());
+                A_ZMJSCM_File.setFile_Array_Usage_Metrics(A_ZMJSCM_File.getFunctions().get(0).getFunction_Array_Usage_Metrics());
+                A_ZMJSCM_File.setFile_Validation_Metrics(A_ZMJSCM_File.getFunctions().get(0).getFunction_Validation_Metrics());
+                
+                //loc                
+                A_ZMJSCM_File.setPhysic_Lines(A_ZMJSCM_File.getFunctions().get(0).getPhysic_Lines()); 
+                A_ZMJSCM_File.setLines_Of_Comments(A_ZMJSCM_File.getFunctions().get(0).getLines_Of_Comments());
+                A_ZMJSCM_File.setBlank_Lines(A_ZMJSCM_File.getFunctions().get(0).getBlank_Lines());
                         
+                A_ZMJSCM_File.setXML_Data (null);// freeing memory
+                Files.add(A_ZMJSCM_File); // add to the list
+            }    
+            Files_XML_Data = null;
         } 
         catch (Exception ex) 
         {
@@ -65,7 +80,7 @@ public class Project {
      */
     public void Init()
     {
-        this.Get_Files();
+        this.Setup_Files();
         
     }
 

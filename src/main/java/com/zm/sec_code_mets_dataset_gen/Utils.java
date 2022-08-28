@@ -289,11 +289,16 @@ public class Utils {
                     Func_Index++;
                 }
             }
+            Project_Files.clear();
             if (Verbose)
             {
                 Logger.getLogger(Utils.class.getName()).log(Level.INFO, "Dataset preparation terminated!");
             }
         }
+        
+        System.gc();// Call the garbage collector 
+        
+        
         // Saving to the output file
         if (Verbose)
         {
@@ -352,6 +357,7 @@ public class Utils {
         {
             Logger.getLogger(Utils.class.getName()).log(Level.INFO, "File saved to disk!!!");
         }
+        
         return true;
     }
     

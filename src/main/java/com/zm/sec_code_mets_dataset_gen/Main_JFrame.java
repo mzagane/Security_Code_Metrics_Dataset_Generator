@@ -2,7 +2,7 @@
  * ZM J Code Metrics
  * 
  * file : The main window (work space)
- * src version: 26.08.2022
+ * src version: 28.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -189,6 +189,7 @@ public class Main_JFrame extends javax.swing.JFrame {
             New_Project.Init(); // processing (get files, function and their metrics)
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Calculating metrics...OK"); 
             Utils.Generate_Dataset(New_Project, "ALL", "arff", "My_Dataset", null, true);
+            New_Project = null;
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "DONE!!!"); 
        
         } 

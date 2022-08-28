@@ -50,7 +50,7 @@ public class ZMJSCM_File {
     private Validation_Metrics.Valid_Met File_Validation_Metrics;
     
     
-    public void Get_Functions()
+    public void Setup_Functions()
     {
         SrcML_Processor Src_ML_P = new SrcML_Processor();
         Function A_Function;
