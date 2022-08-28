@@ -1,4 +1,13 @@
-
+/**
+ * ZM J Code Metrics 2
+ * 
+ * file : Utils class contains helper funcs
+ * 
+ * src version: 28.08.2022
+ * 
+ * @author ZM (ZAGANE Mohammed)
+ * @email : m_zagane@yahoo.fr
+ */
 package com.zm.sec_code_mets_dataset_gen;
 
 import java.io.FileNotFoundException;
@@ -10,6 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -335,7 +348,48 @@ public class Utils {
         return true;
     }
     
-    
+    /**
+     * Get the list of all variables (names) used as indexes
+     * @param XML_Node : the XML representation of the code 
+     * @param Language : the source language
+     * @return  : list of all declared variables
+     */
+    public static List<String> Get_Array_Indexes_List (Node XML_Node, String Language)
+    {
+        List<String> Array_Indexes_List = new ArrayList();
+        
+        Element eXML_Node = (Element) XML_Node; // conversion needed to search by tagName
+        NodeList Index_Node_List = eXML_Node.getElementsByTagName("index");
+        Node An_Index_Node;
+        
+        // variable needed to make an XPath query
+        String Xpath_Expression;	        
+        NodeList Xpath_Node_List, Xpath_Node_List2;
+        XPath xPath =  XPathFactory.newInstance().newXPath();
+        Xpath_Expression = "expr/name";
+        
+        for (int i=0; i<Index_Node_List.getLength(); i++)
+        {
+            An_Index_Node = Index_Node_List.item(i);
+            try 
+            { 
+                Xpath_Node_List = (NodeList) xPath.compile(Xpath_Expression).evaluate(
+                        An_Index_Node, XPathConstants.NODESET);
+                
+                for ( int j=0; j<Xpath_Node_List.getLength(); j++)
+                {
+                    Array_Indexes_List.add(Xpath_Node_List.item(j).getTextContent());
+                }
+            } 
+            catch (XPathExpressionException ex)
+            {
+                Logger.getLogger(Mem_Mgmt_Metrics.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        return Array_Indexes_List;
+    }
     
     
 }
