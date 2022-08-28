@@ -48,6 +48,14 @@ public class Function {
     
     // Validation Metrics
     private Validation_Metrics.Valid_Met Function_Validation_Metrics;
+
+    public Validation_Metrics.Valid_Met getFunction_Validation_Metrics() {
+        return Function_Validation_Metrics;
+    }
+
+    public void setFunction_Validation_Metrics(Validation_Metrics.Valid_Met Function_Validation_Metrics) {
+        this.Function_Validation_Metrics = Function_Validation_Metrics;
+    }
     
     public void Calculate_Metrics() throws XPathExpressionException
     {
