@@ -46,6 +46,8 @@ public class ZMJSCM_File {
     // Arrays usage metrics
     private Array_Usage_Metrics.Arr_Usage_Met File_Array_Usage_Metrics;
     
+    // Validation Metrics
+    private Validation_Metrics.Valid_Met File_Validation_Metrics;
     
     
     public void Get_Functions()
@@ -107,10 +109,29 @@ public class ZMJSCM_File {
         // Arrays usage metrics
         File_Array_Usage_Metrics = Array_Usage_Metrics.Calculate_Arr_Usage_Met(this.XML_Data, Language);
         
+        //Validation Metrics
+        File_Validation_Metrics = Validation_Metrics.Calculate_Valid_Met(XML_Data, Language);
+        
     }
 
     public String getName() {
         return Name;
+    }
+
+    public Array_Usage_Metrics.Arr_Usage_Met getFile_Array_Usage_Metrics() {
+        return File_Array_Usage_Metrics;
+    }
+
+    public void setFile_Array_Usage_Metrics(Array_Usage_Metrics.Arr_Usage_Met File_Array_Usage_Metrics) {
+        this.File_Array_Usage_Metrics = File_Array_Usage_Metrics;
+    }
+
+    public Validation_Metrics.Valid_Met getFile_Validation_Metrics() {
+        return File_Validation_Metrics;
+    }
+
+    public void setFile_Validation_Metrics(Validation_Metrics.Valid_Met File_Validation_Metrics) {
+        this.File_Validation_Metrics = File_Validation_Metrics;
     }
 
     public void setName(String Name) {
