@@ -232,7 +232,11 @@ public class Utils {
             //Array
             Dataset_Header = Dataset_Header + "@attribute Total_Arrays numeric\n";
             Dataset_Header = Dataset_Header + "@attribute Fixed_Size_Arrays numeric\n";
-            Dataset_Header = Dataset_Header + "@attribute Variable_Size_Arrays numeric\n";          
+            Dataset_Header = Dataset_Header + "@attribute Variable_Size_Arrays numeric\n"; 
+            //Validation
+            Dataset_Header = Dataset_Header + "@attribute If_Stmts_Pointers numeric\n";
+            Dataset_Header = Dataset_Header + "@attribute If_Stmts_Indexes numeric\n";
+            Dataset_Header = Dataset_Header + "@attribute Validation_Ratio numeric\n";
             
             
             Dataset_Header = Dataset_Header + "\n@attribute Status {clean,vulnerable}\n\n";
@@ -276,6 +280,9 @@ public class Utils {
                                    A_File_Functions.get(j).getFunction_Array_Usage_Metrics().Total_Arrays + ","+
                                    A_File_Functions.get(j).getFunction_Array_Usage_Metrics().Fixed_Size_Arrays + ","+
                                    A_File_Functions.get(j).getFunction_Array_Usage_Metrics().Variable_Size_Arrays + ","+
+                                   A_File_Functions.get(j).getFunction_Validation_Metrics().If_Stmts_Pointers + ","+
+                                   A_File_Functions.get(j).getFunction_Validation_Metrics().If_Stmts_Indexes + ","+
+                                   A_File_Functions.get(j).getFunction_Validation_Metrics().Validation_Ratio + ","+
                                    Label;
                                    
                     Dataset.add(Dataset_Line);
