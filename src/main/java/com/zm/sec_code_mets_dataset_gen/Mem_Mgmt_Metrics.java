@@ -3,7 +3,7 @@
  * 
  * file : code related to Memory management metrics
  * src date: 22.08.2022
- * src version: 26.08.2022
+ * src version: 28.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -35,8 +35,7 @@ public class Mem_Mgmt_Metrics {
         * Mem_Alloc                 : Total number of call to memory allocation funcs
         * Mem_Realloc               : Total number of call to memory reallocation funcs
         * Mem_Dealloc               : Total number of call to memory de-allocation funcs
-        * Mem_Access                : Total number of call to library funcs that access mem (take in argument pointers) 
-        *                             take a lock in : page 218,219, 221... (SEI cert C...)
+        * Mem_Access                : Total number of call to library funcs that access mem (take pointers in arguments )       
         * Total_Pointers            : Total number of pointers
         * Double_Pointers           : Number of double pointers
         * Init_Pointers             : Number of initialized pointers
