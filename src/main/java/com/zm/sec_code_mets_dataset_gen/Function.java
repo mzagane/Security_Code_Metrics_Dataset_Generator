@@ -46,6 +46,9 @@ public class Function {
     // Arrays usage metrics
     private Array_Usage_Metrics.Arr_Usage_Met Function_Array_Usage_Metrics;
     
+    // Validation Metrics
+    private Validation_Metrics.Valid_Met Function_Validation_Metrics;
+    
     public void Calculate_Metrics() throws XPathExpressionException
     {
         //Loc
@@ -71,6 +74,9 @@ public class Function {
         
         // Arrays usage metrics
         Function_Array_Usage_Metrics = Array_Usage_Metrics.Calculate_Arr_Usage_Met(this.XML_Data, Language);
+        
+        //Validation Metrics
+        Function_Validation_Metrics = Validation_Metrics.Calculate_Valid_Met(XML_Data, Language);
         
     }
     
