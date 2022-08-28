@@ -150,12 +150,14 @@ public class Config
             
             // For version 2 (security metrics)
             //C
+            // Lists taken from the "SEI CERT C Coding Standard, 2016 Edition (Latest)"
             //Functions that return a tainted value
             defaultProps.setProperty("C_TAINTED_SRC_FUNCS", "localeconv fgetc getc getchar fgetwc getwc getwchar getenv fscanf vfscanf vscanf fgets fread fwscanf vfws-canf vwscanf wscanf fgetws scanf");
             defaultProps.setProperty("C_MEM_ACCESS_FUNCS", "fgets fgetws mbstowcs wcstombs mbrtoc16 mbrtoc32 mbsrtowcs wcsrtombs mbtowc mbrtowc mblen mbrlen memchr wmemchr memset wmemset strftime wcsftime strxfrm wcsxfrm strncat wcsncat snprintf vsnprintf swprintf vswprintf setvbuf tmpnam_s snprintf_s sprintf_s vsnprintf_s vsprintf_s gets_s getenv_s wctomb_s mbstowcs_s wcstombs_s memcpy_s memmove_s strncpy_s strncat_s strtok_s strerror_s strnlen_s asctime_s ctime_s snwprintf_s swprintf_s vsnwprintf_s vswprintf_s wcsncpy_s wmemcpy_s wmemmove_s wcsncat_s wcstok_s wcsnlen_s wcrtomb_s mbsrtowcs_s wcsrtombs_s memset_s memcpy wmemcpy memmove wmemmove strncpy wcsncpy memcmp wmemcmp strncmp wcsncmp strcpy_s wcscpy_s strcat_s wcscat_s");
             
-            
-            //C++
+            /*
+            * TODO : to support others languages, add the same for them (must be supported by srcML)
+            */
              
             
             Languages_Settings_Props = new Properties(defaultProps);
