@@ -189,10 +189,10 @@ public class Utils {
     /**
      * Generate dataset
      * @param A_Project : the project to generate for the report
-     * @param Metrics_To_Include : string to indicate the metrics to include in the report
-     * @param Format : the dataset format (arff, xml, json, csv,...)
+     * @param Metrics_To_Include : string to indicate the metrics to include in the report , (NOT USED in this version)
+     * @param Format : the dataset format (arff, xml, json, csv,...), ONLY arff format is supported in this version
      * @param Output_File_Name : Report file name
-     * @param Labels : Class label to add at each instance
+     * @param Labels : Class label to add at each instance (NOT USED in this version)
      * @param Verbose : if true, log messages about progress will shown
      * @return if success it true if fail it return false
      */
@@ -392,9 +392,7 @@ public class Utils {
             {
                 Logger.getLogger(Mem_Mgmt_Metrics.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        
-        
+        }        
         return Array_Indexes_List;
     }
     
