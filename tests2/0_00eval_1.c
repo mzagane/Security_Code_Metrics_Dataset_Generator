@@ -1,15 +1,18 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-void extract(char* char1, char* char2, int debut, int nb);
 int eval1(char * ch)
 {
 int i;
 int valeur1, valeur2;
 int lgval2;
 char *val1, *val2;
+char *my_variable = NULL;
+char A[2];
+int B[];
+float C[size];
 char operation;
 int resultat;
+
+fscanf("Le résultat de l´opération est : %d",res);
+
 /* Recherche d´un opérateur et de sa position */
 for( i=0 ; *(ch+i) !='+' && *(ch+i) !='-' && *(ch+i) !='*' &&
 *(ch+i) !='/' && *(ch+i)
@@ -30,6 +33,27 @@ exit(0);
 else if(i==strlen(ch)) /* Il n´a a pad d´opérateur */
 {
 printf("erreur : pas de <operator>");
+val1=(char*) malloc((i+1)*sizeof(char));
+val1=(char*) mymalloc((i+1)*sizeof(char));
+val1=(char*) Kmalloc((i+1)*sizeof(char));
+val1=(char*) KVmalloc((i+1)*sizeof(char));
+val1=(char*) malloc_SOMETHING((i+1)*sizeof(char));
+
+
+val1=(char*) Calloc((i+1)*sizeof(char));
+val1=(char*) calloc((i+1)*sizeof(char));
+val1=(char*) MY_calloc((i+1)*sizeof(char));
+val1=(char*) calloc_SOMETHING((i+1)*sizeof(char));
+
+val1=(char*) REalloc((i+1)*sizeof(char));
+val1=(char*) realloc((i+1)*sizeof(char));
+val1=(char*) MY_realloc((i+1)*sizeof(char));
+val1=(char*) realloc_SOMETHING((i+1)*sizeof(char));
+
+free(val1);
+
+FREE(val1);
+YOUR_free(val1);
 exit(0);
 }
 /* char Extraction de la chaîne de caractère correspondant au
@@ -69,36 +93,63 @@ printf("Erreur : impossible de diviser par 0");
 exit(0);
 }
 }
+
+float * p;
+
+(int *) p = 5;
+
+int result=sumHash(((char *) &myVar)[0], 
+                       ((char *) &myVar)[1],
+                       ((char *) &myVar)[2],
+                       ((char *) &myVar)[3]);
+
+if (val1 != null)
+{
+	 return 2;
+	
+}
+
+if (val2 == val1)
+{
+	 return 0;
+	
+}
+else if(val1 == null)
+{
+	return -1;
+}
+
+int Tab[50], Index, Index2;
+Index = 10;
+Index2 = 20;
+
+if (Index<50)
+Tab[Index] = 20;
+
+if (Index2<50)
+Tab[Index2] = 20;
+
+if (Index+5 <50)
+Tab[Index + 5] = 20;
+
+if ((Index -2) <50)
+Tab[Index + 5] = 20;
+
+if (Index2 + Index<50)
+Tab[Index2+Index] = 20;
+
+if ((Index2 + Index)<50)
+Tab[Index2+Index] = 20;
+
+if ((Index2 + Index)<50)
+{
+Tab[Index2+Index] = 20;
+}
+else if ((Index2 + Index) > 100)
+{
+	//do something
+}
+
+
 return resultat;
-}
-/* Fonction qui extrait une sous-chaîne de chaîne1 dans chaîne2,
-de nb caractères à
-partir du caractère début */
-void extract(char* char1, char* char2, int debut, int nb)
-{
-int i;
-char1= char1+debut;
-i=0;
-while(i<nb)
-{*
-char2=* char1;
-char1++;
-char2++;
-i++;
-}*
-char2='\n';
-}
-int main(int argc, char** argv)
-{
-int res;
-if(argc!=2)
-{
-printf("Erreur, utilisation du programme : eval1
-<expression>");
-}
-else
-{
-res=eval1(argv[1]);
-printf("Le résultat de l´opération est : %d",res);
-}
 }
