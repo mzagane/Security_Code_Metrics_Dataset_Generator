@@ -350,7 +350,7 @@ public class Utils {
         
         if (Verbose)
         {
-            Logger.getLogger(Utils.class.getName()).log(Level.INFO, "DONE!!!");
+            Logger.getLogger(Utils.class.getName()).log(Level.INFO, "File saved to disk!!!");
         }
         return true;
     }
