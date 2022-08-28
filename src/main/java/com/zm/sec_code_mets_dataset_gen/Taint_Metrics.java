@@ -3,7 +3,7 @@
  * 
  * file : code related to Taint metrics
  * src date: 16.08.2022
- * src version: 22.08.2022
+ * src version: 28.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -84,8 +84,7 @@ public class Taint_Metrics {
         String Xpath_Expression;	        
         NodeList Xpath_Node_List;
         XPath xPath =  XPathFactory.newInstance().newXPath();
-        
-        
+                
         Xpath_Expression = "argument_list/argument/expr/name";
         for (int i=0; i<Funcs_Calls_Node_List.getLength(); i++)
         {
@@ -100,8 +99,7 @@ public class Taint_Metrics {
                 for (int j=0; j<Xpath_Node_List.getLength(); j++)
                 {
                     Tainted_Var_List.add(Xpath_Node_List.item(j).getTextContent());
-                }
-                
+                }                
                 //Tainted_Var_List.add(Func_Name);
             }
         } 
@@ -175,8 +173,7 @@ public class Taint_Metrics {
         /*//debugging
         System.out.println(Get_Total_Funcs_Calls(XML_Node));
         System.out.println(T_M.Tainted_Src_Calls);
-        System.out.println(T_M.Taint_Ratio);*/
-        
+        System.out.println(T_M.Taint_Ratio);*/ 
         return T_M;
     }
     
