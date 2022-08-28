@@ -58,7 +58,6 @@ public class Array_Usage_Metrics {
                 ARR_M.Variable_Size_Arrays ++;                
             }
         }
-        
         ARR_M.Total_Arrays = ARR_M.Fixed_Size_Arrays + ARR_M.Variable_Size_Arrays;
 
         //debugging
