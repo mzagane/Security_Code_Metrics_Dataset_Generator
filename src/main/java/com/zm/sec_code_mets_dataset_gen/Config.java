@@ -3,7 +3,7 @@
  * 
  * file : The config (settings) class, all codes related
  * load and save settings from/to disk.
- * src version: 15.08.2020
+ * src version: 28.08.2022
  * 
  * @author ZM (ZAGANE Mohammed)
  * @email : m_zagane@yahoo.fr
@@ -45,16 +45,16 @@ public class Config
      */
     public void Load_App_Settings()
     {
-        InputStream inputStream = null;
+        InputStream App_Settings_InputStream = null;
         try 
         {
-            Properties defaultProps = new Properties();
+            Properties App_Settings_Default_Props = new Properties();
             // sets default properties
-            defaultProps.setProperty("srcML_EXE_Path", "E:\\srcML\\srcml.exe");
-            App_Settings_Props = new Properties(defaultProps);
+            App_Settings_Default_Props.setProperty("srcML_EXE_Path", "E:\\srcML\\srcml.exe");
+            App_Settings_Props = new Properties(App_Settings_Default_Props);
             // loads properties from file
-            inputStream = new FileInputStream(configFile);
-            App_Settings_Props.load(inputStream);
+            App_Settings_InputStream = new FileInputStream(configFile);
+            App_Settings_Props.load(App_Settings_InputStream);
         } 
         catch (FileNotFoundException ex) 
         {
@@ -68,7 +68,7 @@ public class Config
         {
             try 
             {
-                inputStream.close();
+                App_Settings_InputStream.close();
             } 
             catch (IOException ex) {
                 Logger.getLogger(Config.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,12 +84,12 @@ public class Config
     public void Save_App_Settings(String srcML_EXE_Path)
     {
 		
-        OutputStream outputStream = null;
+        OutputStream App_Settings_Output_Stream = null;
         try 
         {
             App_Settings_Props.setProperty("srcML_EXE_Path", srcML_EXE_Path);
-            outputStream = new FileOutputStream(configFile);
-            App_Settings_Props.store(outputStream, "ZM J Code Metrics 2 Settings");
+            App_Settings_Output_Stream = new FileOutputStream(configFile);
+            App_Settings_Props.store(App_Settings_Output_Stream, "ZM J Code Metrics 2 Settings");
         } 
         catch (FileNotFoundException ex) 
         {
@@ -103,7 +103,7 @@ public class Config
         {
             try 
             {
-                outputStream.close();
+                App_Settings_Output_Stream.close();
             } catch (IOException ex) 
             {
                 Logger.getLogger(Config.class.getName()).log(Level.SEVERE, null, ex);
@@ -122,27 +122,27 @@ public class Config
      */   
     public void Load_Languages_Settings()
     {
-        InputStream inputStream = null;
+        InputStream Languages_Settings_Input_Stream = null;
         try 
         {
-            Properties defaultProps = new Properties();
+            Properties Languages_Settings_Default_Props = new Properties();
             // sets default properties
             // c++
-            defaultProps.setProperty("CPP_KEY_WORDS", "asm break case class continue default delete do else enum for goto if new operator private protected public return sizeof struct switch this union while namespace using try catch throw const_cast static_cast dynamic_cast reinterpret_cast typeid template explicit true false typename");
-            defaultProps.setProperty("CPP_CONTROL_COMMANDS","if for while do case && || catch cpp:ifndef cpp:ifdef cpp:elif ternary");
-            defaultProps.setProperty("CPP_TYPE_QUALIFICATORS","const friend volatile");
-            defaultProps.setProperty("CPP_STORAGE_CLASS_SPECIFICATORS","auto extern inlin register static typedef virtual mtuable");
-            defaultProps.setProperty("CPP_TYPE_SPECIFICATORS","bool char double float int long short signed unsigned void");
-            defaultProps.setProperty("CPP_OPERATORS","! != % %= & && || &= ( ) * ** *= + ++ += , ; - -- -= -> . ... / /= : :: < << <<= <= == = > >= >> >>= ? [ ] ^ ^= { } | |= ~ #");
+            Languages_Settings_Default_Props.setProperty("CPP_KEY_WORDS", "asm break case class continue default delete do else enum for goto if new operator private protected public return sizeof struct switch this union while namespace using try catch throw const_cast static_cast dynamic_cast reinterpret_cast typeid template explicit true false typename");
+            Languages_Settings_Default_Props.setProperty("CPP_CONTROL_COMMANDS","if for while do case && || catch cpp:ifndef cpp:ifdef cpp:elif ternary");
+            Languages_Settings_Default_Props.setProperty("CPP_TYPE_QUALIFICATORS","const friend volatile");
+            Languages_Settings_Default_Props.setProperty("CPP_STORAGE_CLASS_SPECIFICATORS","auto extern inlin register static typedef virtual mtuable");
+            Languages_Settings_Default_Props.setProperty("CPP_TYPE_SPECIFICATORS","bool char double float int long short signed unsigned void");
+            Languages_Settings_Default_Props.setProperty("CPP_OPERATORS","! != % %= & && || &= ( ) * ** *= + ++ += , ; - -- -= -> . ... / /= : :: < << <<= <= == = > >= >> >>= ? [ ] ^ ^= { } | |= ~ #");
                       
                         
             //c
-            defaultProps.setProperty("C_KEY_WORDS", "asm break case class continue default delete do else enum for goto if new operator private protected public return sizeof struct switch this union while namespace using try catch throw const_cast static_cast dynamic_cast reinterpret_cast typeid template explicit true false typename");
-            defaultProps.setProperty("C_CONTROL_COMMANDS","if for while do case && || catch cpp:ifndef cpp:ifdef cpp:elif ternary");
-            defaultProps.setProperty("C_TYPE_QUALIFICATORS","const friend volatile");
-            defaultProps.setProperty("C_STORAGE_CLASS_SPECIFICATORS","auto extern inlin register static typedef virtual mtuable");
-            defaultProps.setProperty("C_TYPE_SPECIFICATORS","bool char double float int long short signed unsigned void");
-            defaultProps.setProperty("C_OPERATORS","! != % %= & && || &= ( ) * ** *= + ++ += , ; - -- -= -> . ... / /= : :: < << <<= <= == = > >= >> >>= ? [ ] ^ ^= { } | |= ~ #");
+            Languages_Settings_Default_Props.setProperty("C_KEY_WORDS", "asm break case class continue default delete do else enum for goto if new operator private protected public return sizeof struct switch this union while namespace using try catch throw const_cast static_cast dynamic_cast reinterpret_cast typeid template explicit true false typename");
+            Languages_Settings_Default_Props.setProperty("C_CONTROL_COMMANDS","if for while do case && || catch cpp:ifndef cpp:ifdef cpp:elif ternary");
+            Languages_Settings_Default_Props.setProperty("C_TYPE_QUALIFICATORS","const friend volatile");
+            Languages_Settings_Default_Props.setProperty("C_STORAGE_CLASS_SPECIFICATORS","auto extern inlin register static typedef virtual mtuable");
+            Languages_Settings_Default_Props.setProperty("C_TYPE_SPECIFICATORS","bool char double float int long short signed unsigned void");
+            Languages_Settings_Default_Props.setProperty("C_OPERATORS","! != % %= & && || &= ( ) * ** *= + ++ += , ; - -- -= -> . ... / /= : :: < << <<= <= == = > >= >> >>= ? [ ] ^ ^= { } | |= ~ #");
             
             /*
             * TODO add the same for the other languages supported by srcML
@@ -152,17 +152,17 @@ public class Config
             //C
             // Lists taken from the "SEI CERT C Coding Standard, 2016 Edition (Latest)"
             //Functions that return a tainted value
-            defaultProps.setProperty("C_TAINTED_SRC_FUNCS", "localeconv fgetc getc getchar fgetwc getwc getwchar getenv fscanf vfscanf vscanf fgets fread fwscanf vfws-canf vwscanf wscanf fgetws scanf");
-            defaultProps.setProperty("C_MEM_ACCESS_FUNCS", "fgets fgetws mbstowcs wcstombs mbrtoc16 mbrtoc32 mbsrtowcs wcsrtombs mbtowc mbrtowc mblen mbrlen memchr wmemchr memset wmemset strftime wcsftime strxfrm wcsxfrm strncat wcsncat snprintf vsnprintf swprintf vswprintf setvbuf tmpnam_s snprintf_s sprintf_s vsnprintf_s vsprintf_s gets_s getenv_s wctomb_s mbstowcs_s wcstombs_s memcpy_s memmove_s strncpy_s strncat_s strtok_s strerror_s strnlen_s asctime_s ctime_s snwprintf_s swprintf_s vsnwprintf_s vswprintf_s wcsncpy_s wmemcpy_s wmemmove_s wcsncat_s wcstok_s wcsnlen_s wcrtomb_s mbsrtowcs_s wcsrtombs_s memset_s memcpy wmemcpy memmove wmemmove strncpy wcsncpy memcmp wmemcmp strncmp wcsncmp strcpy_s wcscpy_s strcat_s wcscat_s");
+            Languages_Settings_Default_Props.setProperty("C_TAINTED_SRC_FUNCS", "localeconv fgetc getc getchar fgetwc getwc getwchar getenv fscanf vfscanf vscanf fgets fread fwscanf vfws-canf vwscanf wscanf fgetws scanf");
+            Languages_Settings_Default_Props.setProperty("C_MEM_ACCESS_FUNCS", "fgets fgetws mbstowcs wcstombs mbrtoc16 mbrtoc32 mbsrtowcs wcsrtombs mbtowc mbrtowc mblen mbrlen memchr wmemchr memset wmemset strftime wcsftime strxfrm wcsxfrm strncat wcsncat snprintf vsnprintf swprintf vswprintf setvbuf tmpnam_s snprintf_s sprintf_s vsnprintf_s vsprintf_s gets_s getenv_s wctomb_s mbstowcs_s wcstombs_s memcpy_s memmove_s strncpy_s strncat_s strtok_s strerror_s strnlen_s asctime_s ctime_s snwprintf_s swprintf_s vsnwprintf_s vswprintf_s wcsncpy_s wmemcpy_s wmemmove_s wcsncat_s wcstok_s wcsnlen_s wcrtomb_s mbsrtowcs_s wcsrtombs_s memset_s memcpy wmemcpy memmove wmemmove strncpy wcsncpy memcmp wmemcmp strncmp wcsncmp strcpy_s wcscpy_s strcat_s wcscat_s");
             
             /*
             * TODO : to support others languages, add the same for them (must be supported by srcML)
             */
              
             
-            Languages_Settings_Props = new Properties(defaultProps);
-            inputStream = new FileInputStream(Languages_Settings_File);
-            Languages_Settings_Props.load(inputStream);
+            Languages_Settings_Props = new Properties(Languages_Settings_Default_Props);
+            Languages_Settings_Input_Stream = new FileInputStream(Languages_Settings_File);
+            Languages_Settings_Props.load(Languages_Settings_Input_Stream);
         } 
         catch (FileNotFoundException ex) 
         {
@@ -176,7 +176,7 @@ public class Config
         {
             try 
             {
-                inputStream.close();
+                Languages_Settings_Input_Stream.close();
             } 
             catch (IOException ex) 
             {
