@@ -61,13 +61,13 @@ public class Function {
     {
         //Loc
         Physic_Lines = Loc_Metrics.Get_Physic_Lines_Function(this.XML_Data) ; 
-        Lines_Of_Comments = Loc_Metrics.Get_Lines_Of_Comments(this.XML_Data);        
+        //Lines_Of_Comments = Loc_Metrics.Get_Lines_Of_Comments(this.XML_Data);        
         //Blank Lines
         // This works very fines but very bad coded, to be rewritten :)
-        Temp = new ArrayList();
-        Loc_Metrics.Get_Blank_Lines(this.XML_Data, Temp);
-        Blank_Lines = Temp.size()/2;
-        Temp.clear();
+        //Temp = new ArrayList();
+        //Loc_Metrics.Get_Blank_Lines(this.XML_Data, Temp);
+        //Blank_Lines = Temp.size()/2;
+        //Temp.clear();
         //----
         
         //Debbuging : 

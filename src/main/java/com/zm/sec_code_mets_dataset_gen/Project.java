@@ -179,6 +179,13 @@ public class Project {
                     * In the dataset, each file contains a function, so no need
                     * to recalculate the metrics for the file (which will slow down the process for no thing)
                     */
+                    
+                    if (A_ZMJSCM_File.getFunctions().isEmpty())
+                    {
+                        File_Index ++;
+                        continue;
+                    }
+                    
                     A_ZMJSCM_File.setFile_Taint_Metrics(A_ZMJSCM_File.getFunctions().get(0).getFunction_Taint_Metrics());
                     A_ZMJSCM_File.setFile_Mem_Mgmt_Metrics(A_ZMJSCM_File.getFunctions().get(0).getFunction_Mem_Mgmt_Metrics());
                     A_ZMJSCM_File.setFile_Array_Usage_Metrics(A_ZMJSCM_File.getFunctions().get(0).getFunction_Array_Usage_Metrics());
