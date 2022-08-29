@@ -185,10 +185,11 @@ public class Main_JFrame extends javax.swing.JFrame {
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Waiting for srcML to generate XML file..."); 
             Pros.waitFor(); // waiting for srcML to generate XML file
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Waiting for srcML to generate XML file...OK"); 
-            Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Calculating metrics, please wait..."); 
-            New_Project.Init(); // processing (get files, function and their metrics)
+            Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Processing, please wait..."); 
+            //New_Project.Init();
+            New_Project.Generate_Dataset("ALL", "ARFF", "My_Dataset", true);
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Calculating metrics...OK"); 
-            Utils.Generate_Dataset(New_Project, "ALL", "arff", "My_Dataset", null, true);
+            //Utils.Generate_Dataset(New_Project, "ALL", "arff", "My_Dataset", null, true);
             New_Project = null;
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "DONE!!!"); 
        
