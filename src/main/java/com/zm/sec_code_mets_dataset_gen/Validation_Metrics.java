@@ -104,6 +104,12 @@ public class Validation_Metrics {
                     String Var_Name = Xpath_Node_List.item(j).getTextContent();                    
                     for (Variable A_Variable : Variables_List) 
                     {
+                        
+                        if ((A_Variable.Variable_Name == null) || (Var_Name==null))
+                        {
+                                continue;
+                        }
+                        
                         if (
                                     (A_Variable.Variable_Name.equals(Var_Name)) 
                                     && 
