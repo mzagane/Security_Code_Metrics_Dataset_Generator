@@ -46,7 +46,7 @@ public class SrcML_Processor {
             //File XML_File = new File(XML_File_Name);
             dBuilder = dbFactory.newDocumentBuilder();
             SrcML_Doc = dBuilder.parse(XML_File_Name);
-            SrcML_Doc.getDocumentElement().normalize();
+            //SrcML_Doc.getDocumentElement(). normalize();
         }
         catch (ParserConfigurationException | SAXException | IOException ex) 
         {
