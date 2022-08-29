@@ -138,15 +138,15 @@ public class Main_JFrame extends javax.swing.JFrame {
 
     private void Calculate_Metrics_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Calculate_Metrics_jButtonActionPerformed
                 
-        String srcML_EXE_Path;
+        //String srcML_EXE_Path;
         
         Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Starting...");
         // Loading App settingd
-        Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Loading config...");        
-        Config App_Settings = new Config(); 
-        App_Settings.Load_App_Settings();
-        srcML_EXE_Path = App_Settings.App_Settings_Props.getProperty("srcML_EXE_Path");
-	Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Loading config...OK"); 
+        //Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Loading config...");        
+        //Config App_Settings = new Config(); 
+        //App_Settings.Load_App_Settings();
+        //srcML_EXE_Path = App_Settings.App_Settings_Props.getProperty("srcML_EXE_Path");
+	//Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Loading config...OK"); 
         // end : Load the app settings
         
         //checking inputs
@@ -175,29 +175,28 @@ public class Main_JFrame extends javax.swing.JFrame {
         Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Initializing Project...OK"); 
         // end project setup
         
-        try
-        { 
-            Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Starting srcML..."); 
+        //try
+        //{ 
+            //Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Starting srcML..."); 
             // convert project source to XML using srcML
-            ProcessBuilder processBuilder = new ProcessBuilder(srcML_EXE_Path, New_Project.getSource(), "-o"+ New_Project.getXML_File(),"--position" );            
-            Process Pros = processBuilder.start();
-            Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Starting srcML...OK"); 
-            Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Waiting for srcML to generate XML file..."); 
-            Pros.waitFor(); // waiting for srcML to generate XML file
-            Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Waiting for srcML to generate XML file...OK"); 
+            //ProcessBuilder processBuilder = new ProcessBuilder(srcML_EXE_Path, New_Project.getSource(), "-o"+ New_Project.getXML_File(),"--position" );            
+            //Process Pros = processBuilder.start();
+            //Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Starting srcML...OK"); 
+            //Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Waiting for srcML to generate XML file..."); 
+            //Pros.waitFor(); // waiting for srcML to generate XML file
+            //Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Waiting for srcML to generate XML file...OK"); 
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "Processing, please wait..."); 
             //New_Project.Init();
-            New_Project.Generate_Dataset("ALL", "ARFF", "My_Dataset", true); 
+            New_Project.Generate_Dataset("ALL", "arff", "My_Dataset", true); 
             //Utils.Generate_Dataset(New_Project, "ALL", "arff", "My_Dataset", null, true);
-            New_Project = null;
             Logger.getLogger(Main_JFrame.class.getName()).log(Level.INFO, "DONE!!!"); 
        
-        } 
-        catch (IOException | InterruptedException ex)
-        {
+        //} 
+        //catch (IOException | InterruptedException ex)
+        //{
         
-            Logger.getLogger(Main_JFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            //Logger.getLogger(Main_JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        //}
         
     }//GEN-LAST:event_Calculate_Metrics_jButtonActionPerformed
 
