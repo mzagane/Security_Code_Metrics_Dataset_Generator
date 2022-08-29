@@ -68,8 +68,8 @@ public class Project {
                 
                 //loc                
                 A_ZMJSCM_File.setPhysic_Lines(A_ZMJSCM_File.getFunctions().get(0).getPhysic_Lines()); 
-                A_ZMJSCM_File.setLines_Of_Comments(A_ZMJSCM_File.getFunctions().get(0).getLines_Of_Comments());
-                A_ZMJSCM_File.setBlank_Lines(A_ZMJSCM_File.getFunctions().get(0).getBlank_Lines());
+                //A_ZMJSCM_File.setLines_Of_Comments(A_ZMJSCM_File.getFunctions().get(0).getLines_Of_Comments());
+                //A_ZMJSCM_File.setBlank_Lines(A_ZMJSCM_File.getFunctions().get(0).getBlank_Lines());
                         
                 A_ZMJSCM_File.setXML_Data (null);// freeing memory
                 Files.add(A_ZMJSCM_File); // add to the list
@@ -135,6 +135,7 @@ public class Project {
         Dataset_Header = Dataset_Header + "@attribute If_Stmts_Pointers numeric\n";
         Dataset_Header = Dataset_Header + "@attribute If_Stmts_Indexes numeric\n";
         Dataset_Header = Dataset_Header + "@attribute Validation_Ratio numeric\n";
+        Dataset_Header = Dataset_Header + "@attribute LOC numeric\n";
 
 
         Dataset_Header = Dataset_Header + "\n@attribute Status {clean,vulnerable}\n\n";
@@ -193,8 +194,8 @@ public class Project {
 
                     //loc                
                     A_ZMJSCM_File.setPhysic_Lines(A_ZMJSCM_File.getFunctions().get(0).getPhysic_Lines()); 
-                    A_ZMJSCM_File.setLines_Of_Comments(A_ZMJSCM_File.getFunctions().get(0).getLines_Of_Comments());
-                    A_ZMJSCM_File.setBlank_Lines(A_ZMJSCM_File.getFunctions().get(0).getBlank_Lines());
+                    //A_ZMJSCM_File.setLines_Of_Comments(A_ZMJSCM_File.getFunctions().get(0).getLines_Of_Comments());
+                    //A_ZMJSCM_File.setBlank_Lines(A_ZMJSCM_File.getFunctions().get(0).getBlank_Lines());
 
                     List<Function> A_File_Functions;
                     String Label="";
@@ -232,6 +233,7 @@ public class Project {
                                        A_File_Functions.get(j).getFunction_Validation_Metrics().If_Stmts_Pointers + ","+
                                        A_File_Functions.get(j).getFunction_Validation_Metrics().If_Stmts_Indexes + ","+
                                        A_File_Functions.get(j).getFunction_Validation_Metrics().Validation_Ratio + ","+
+                                       A_File_Functions.get(j).getPhysic_Lines() + ","+
                                        Label;
 
                         Dataset.add(Dataset_Line);
