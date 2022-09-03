@@ -67,6 +67,8 @@ public class Mem_Mgmt_Metrics {
             Uninit_Pointers = 0;
             Pointers_Casting = 0;
             //Pointer_Arithmetic = 0;
+            
+            
         }
     }
     
